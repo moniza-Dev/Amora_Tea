@@ -1,0 +1,1755 @@
+[
+  {
+    "id": 1,
+    "name": "Sencha",
+    "slug": "sencha",
+    "description": "Japan's most beloved everyday green tea, accounting for nearly 80% of the country's tea production. Grown in full sunlight and steamed immediately after harvest, Sencha has a fresh, vibrant green colour and a clean, grassy flavour with a pleasant astringency.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sencha_Japanischer_Gr%C3%BCner_Tee.jpg",
+    "origin": "Shizuoka & Uji, Japan",
+    "caffeine_level": "medium",
+    "temperature_celsius": 75,
+    "steeping_time_minutes": 2,
+    "brewing_instructions": "Use 1 tsp (roughly 3g) per 8oz (240ml) of water at 70–80°C. Steep for 1–2 minutes. Can be re-steeped up to 3 times, increasing steep time by 30 seconds each infusion. Cooler water and shorter times yield sweeter, more delicate cups.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 1,
+      "slug": "green",
+      "name": "Green Tea",
+      "description": "Unoxidized leaves steamed or pan-fired immediately after harvest to halt oxidation. Yields a fresh, grassy flavour with high antioxidant content."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 1,
+        "name": "Earthy"
+      },
+      {
+        "id": 6,
+        "name": "Grassy"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 5,
+        "name": "Improves Focus"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 1,
+          "name": "Green Tea Leaves",
+          "description": "Unoxidized leaves of Camellia sinensis, pan-fired or steamed to halt oxidation and preserve green colour and grassy flavour.",
+          "image_url": "https://images.unsplash.com/photo-1596431969065-4f4044ae7dce?w=800&q=80"
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Earl Grey",
+    "slug": "earl-grey",
+    "description": "The world's most recognisable flavoured tea — a classic black tea blend naturally scented with bergamot oil, named after the British Prime Minister Charles Grey. Its floral citrus fragrance is immediately distinctive.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mug_of_Earl_Grey_tea,_Cafe_Express,_York_Way,_London,_England_02.jpg",
+    "origin": "United Kingdom",
+    "caffeine_level": "high",
+    "temperature_celsius": 95,
+    "steeping_time_minutes": 4,
+    "brewing_instructions": "Use 1 tsp (2–3g) per 8oz (240ml) of near-boiling water. Steep for 3–5 minutes depending on strength preference. Excellent with a splash of milk or a slice of lemon. Avoid boiling water to preserve the bergamot's delicate aroma.",
+    "category": {
+      "id": 2,
+      "slug": "blend",
+      "name": "Blend",
+      "description": "An intentional combination of a true tea base with herbs, spices, florals, or essential oils to create a distinct and layered flavour profile."
+    },
+    "tea_type": null,
+    "base_type": {
+      "id": 3,
+      "slug": "black",
+      "name": "Black Tea",
+      "description": "Fully oxidized leaves producing a bold, robust flavour and deep amber liquor. The most widely consumed true tea type worldwide."
+    },
+    "characteristics": [
+      {
+        "id": 3,
+        "name": "Citrusy"
+      },
+      {
+        "id": 5,
+        "name": "Bold"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "99%",
+        "ingredient": {
+          "id": 2,
+          "name": "Black Tea Leaves",
+          "description": "Fully oxidized leaves of Camellia sinensis, producing a deep amber liquor and robust, malty flavour.",
+          "image_url": "https://images.unsplash.com/photo-1571216954605-8273cfca1788?w=800&q=80"
+        }
+      },
+      {
+        "amount": "1%",
+        "ingredient": {
+          "id": 3,
+          "name": "Bergamot Oil",
+          "description": "Cold-pressed essential oil from the rind of the bergamot orange (Citrus bergamia), a fragrant citrus fruit grown primarily in Calabria, Italy.",
+          "image_url": "https://images.unsplash.com/photo-1615486511484-92e1728271e8?w=800&q=80"
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Chamomile Mint",
+    "slug": "chamomile-mint",
+    "description": "A soothing herbal infusion blending calming chamomile with refreshing peppermint. The gentle sweetness of chamomile flowers balances the cooling menthol of peppermint for a tisane that is both relaxing and invigorating.",
+    "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&q=80",
+    "origin": "Egypt / United States",
+    "caffeine_level": "none",
+    "temperature_celsius": 100,
+    "steeping_time_minutes": 5,
+    "brewing_instructions": "Use 1.5 tsp (3–4g) per 8oz (240ml) of boiling water. Steep covered for 5 minutes to trap the essential oils. The blend is forgiving — longer steeping intensifies without becoming bitter. Add honey to enhance sweetness.",
+    "category": {
+      "id": 3,
+      "slug": "tisane",
+      "name": "Tisane (Herbal Tea)",
+      "description": "Herbal infusions made from dried herbs, flowers, fruits, roots, or spices. Contains no Camellia sinensis leaves and is therefore naturally caffeine-free."
+    },
+    "tea_type": null,
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 2,
+        "name": "Floral"
+      },
+      {
+        "id": 4,
+        "name": "Minty"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 2,
+        "name": "Promotes Sleep & Relaxation"
+      },
+      {
+        "id": 4,
+        "name": "Aids Digestion"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "60%",
+        "ingredient": {
+          "id": 4,
+          "name": "Dried Chamomile Flowers",
+          "description": "Daisy-like flowers of Matricaria chamomilla, dried to concentrate their gentle apple-like sweetness and calming properties.",
+          "image_url": "https://images.unsplash.com/photo-1596486001710-1a739509b552?w=800&q=80"
+        }
+      },
+      {
+        "amount": "40%",
+        "ingredient": {
+          "id": 5,
+          "name": "Peppermint Leaves",
+          "description": "Dried leaves of Mentha piperita, a hybrid mint cross prized for its high menthol content and intensely cooling, refreshing character.",
+          "image_url": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=800&q=80"
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Gyokuro",
+    "slug": "gyokuro",
+    "description": "Japan's most prized green tea, shaded from sunlight for 20+ days before harvest. The reduced light signals the plant to produce extraordinary levels of L-theanine and chlorophyll, resulting in an intensely umami, sweet, and deeply complex cup known as 'jade dew'.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyokuro_img_0067.jpg",
+    "origin": "Uji & Yame, Japan",
+    "caffeine_level": "high",
+    "temperature_celsius": 60,
+    "steeping_time_minutes": 2,
+    "brewing_instructions": "Use 5g per 150ml of water at 55–60°C — far cooler than any other tea. Steep for exactly 2 minutes without stirring. The low temperature extracts sweetness and umami while suppressing bitterness. Re-steep 2–3 times, slightly increasing temperature each time.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 1,
+      "slug": "green",
+      "name": "Green Tea",
+      "description": "Unoxidized leaves steamed or pan-fired immediately after harvest to halt oxidation. Yields a fresh, grassy flavour with high antioxidant content."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 7,
+        "name": "Umami"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 6,
+        "name": "Grassy"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 5,
+        "name": "Improves Focus"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      },
+      {
+        "id": 11,
+        "name": "Rich in L-Theanine"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 6,
+          "name": "Shade-Grown Green Tea Leaves",
+          "description": "Camellia sinensis leaves grown under shade covers for 20+ days before harvest. Reduced sunlight triggers the plant to produce more chlorophyll, L-theanine, and caffeine, resulting in intense umami sweetness.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyokuro_tea_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Matcha",
+    "slug": "matcha",
+    "description": "A finely stone-ground powder made from shade-grown tencha leaves. Unlike all other teas, matcha is whisked into water rather than steeped — meaning you consume the entire leaf and all its nutrients. One of the most antioxidant-rich foods on earth.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Matcha_tea.JPG",
+    "origin": "Uji, Japan",
+    "caffeine_level": "high",
+    "temperature_celsius": 80,
+    "steeping_time_minutes": 1,
+    "brewing_instructions": "Sift 1–2g of ceremonial grade matcha into a warmed bowl. Add 70–80ml of water at 75–80°C (never boiling). Whisk vigorously in a 'W' or 'M' motion until frothy. For usucha (thin tea) use 1g; for koicha (thick tea) use 3–4g and whisk slowly.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 1,
+      "slug": "green",
+      "name": "Green Tea",
+      "description": "Unoxidized leaves steamed or pan-fired immediately after harvest to halt oxidation. Yields a fresh, grassy flavour with high antioxidant content."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 7,
+        "name": "Umami"
+      },
+      {
+        "id": 6,
+        "name": "Grassy"
+      },
+      {
+        "id": 15,
+        "name": "Vegetal"
+      },
+      {
+        "id": 13,
+        "name": "Creamy"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 5,
+        "name": "Improves Focus"
+      },
+      {
+        "id": 7,
+        "name": "Supports Weight Management"
+      },
+      {
+        "id": 10,
+        "name": "Reduces Stress & Anxiety"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 7,
+          "name": "Stone-Ground Matcha Powder",
+          "description": "Tencha (shade-grown tea) leaves that have been stone-ground into an ultra-fine powder. Unlike steeped teas, the entire leaf is consumed, maximising nutrient intake.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Matcha_powder.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Dragonwell (Long Jing)",
+    "slug": "dragonwell-long-jing",
+    "description": "China's most celebrated green tea, named for a well in the hills of Hangzhou. Pan-fired in a hot wok to create its signature flat, sword-shaped leaves, Dragonwell has a clean chestnut sweetness, delicate vegetal notes, and a lingering finish prized by emperors for centuries.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Stir_frying_Xi_Hu_Longjing.png",
+    "origin": "Hangzhou, Zhejiang, China",
+    "caffeine_level": "medium",
+    "temperature_celsius": 80,
+    "steeping_time_minutes": 2,
+    "brewing_instructions": "Use 3g per 200ml of water at 75–80°C. Steep for 1–2 minutes. The second and third infusions are often considered the most flavourful. Use a glass cup to watch the leaves unfurl — part of the traditional Dragonwell experience.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 1,
+      "slug": "green",
+      "name": "Green Tea",
+      "description": "Unoxidized leaves steamed or pan-fired immediately after harvest to halt oxidation. Yields a fresh, grassy flavour with high antioxidant content."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 6,
+        "name": "Grassy"
+      },
+      {
+        "id": 16,
+        "name": "Nutty"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 5,
+        "name": "Improves Focus"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 8,
+          "name": "Dragonwell (Long Jing) Tea Leaves",
+          "description": "Flat, sword-shaped leaves from the hills of Hangzhou, pan-fired in a wok to create a distinctive chestnut-sweet flavour. One of China's ten famous teas.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Longjing_tea_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Gunpowder Green",
+    "slug": "gunpowder-green",
+    "description": "Named for its tightly rolled pellets that resemble old musket powder, this bold Chinese green tea from Zhejiang province unfurls dramatically in hot water. Its robust, slightly smoky character makes it one of the longest-lasting green teas in storage.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Th%C3%A9_vert_gunpowder_entass%C3%A9_01.jpg",
+    "origin": "Zhejiang, China",
+    "caffeine_level": "medium",
+    "temperature_celsius": 80,
+    "steeping_time_minutes": 3,
+    "brewing_instructions": "Use 1 tsp (3g) of pellets per 8oz (240ml) of water at 75–80°C. Steep for 2–3 minutes. Overbrewing will intensify bitterness. The traditional base for Moroccan Mint Tea — the pellets hold up well to the addition of sugar and mint.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 1,
+      "slug": "green",
+      "name": "Green Tea",
+      "description": "Unoxidized leaves steamed or pan-fired immediately after harvest to halt oxidation. Yields a fresh, grassy flavour with high antioxidant content."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 8,
+        "name": "Smoky"
+      },
+      {
+        "id": 5,
+        "name": "Bold"
+      },
+      {
+        "id": 1,
+        "name": "Earthy"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 9,
+        "name": "Boosts Immune System"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 9,
+          "name": "Gunpowder Green Tea Leaves",
+          "description": "Green tea leaves from Zhejiang province, tightly rolled into small pellets resembling old musket powder. Rolling preserves freshness and concentrates flavour.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gunpowder_tea_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Silver Needle (Bai Hao Yin Zhen)",
+    "slug": "silver-needle",
+    "description": "The most prized of all white teas, made exclusively from young, silver-downy, unopened buds harvested during a brief spring window in Fujian. Ethereally light and sweet with a subtle floral complexity — the result of the most delicate processing of any tea.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bai_Hao_Yinzhen_or_Silver_needle_White_Tea.JPG",
+    "origin": "Fujian, China",
+    "caffeine_level": "low",
+    "temperature_celsius": 80,
+    "steeping_time_minutes": 4,
+    "brewing_instructions": "Use 3g per 200ml of water at 75–80°C. Steep for 3–5 minutes — white tea is forgiving and won't turn bitter. The downy buds can be re-steeped up to 3 times. Excellent cold-brewed: 8g per litre of cold water for 8 hours in the refrigerator.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 2,
+      "slug": "white",
+      "name": "White Tea",
+      "description": "Minimally processed young buds and leaves, simply withered and dried. Produces a delicate, subtly sweet liquor with very low caffeine."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 2,
+        "name": "Floral"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 11,
+        "name": "Fruity"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 6,
+        "name": "Reduces Inflammation"
+      },
+      {
+        "id": 9,
+        "name": "Boosts Immune System"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 10,
+          "name": "White Tea Buds (Bai Hao Yin Zhen)",
+          "description": "Exclusively the youngest, silver-downy, unopened buds of Camellia sinensis harvested during a narrow early spring window in Fujian. The most prized white tea material.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Yin_zhen_tea.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "White Peony (Bai Mu Dan)",
+    "slug": "white-peony",
+    "description": "The most popular white tea in China, crafted from one bud and two young leaves of Camellia sinensis. Bai Mu Dan offers a fuller body and slightly bolder flavour than Silver Needle while retaining the characteristic delicate sweetness of white tea processing.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bai_Mudan.jpg",
+    "origin": "Fujian, China",
+    "caffeine_level": "low",
+    "temperature_celsius": 80,
+    "steeping_time_minutes": 3,
+    "brewing_instructions": "Use 2–3g per 200ml of water at 75–85°C. Steep for 3–5 minutes. White teas are very forgiving with time. Can be re-steeped 2–3 times. A wonderful entry point into white teas — more flavourful than Silver Needle but still delicate.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 2,
+      "slug": "white",
+      "name": "White Tea",
+      "description": "Minimally processed young buds and leaves, simply withered and dried. Produces a delicate, subtly sweet liquor with very low caffeine."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 2,
+        "name": "Floral"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 11,
+        "name": "Fruity"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 6,
+        "name": "Reduces Inflammation"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 11,
+          "name": "White Tea Leaves & Buds (Bai Mu Dan)",
+          "description": "One bud and two young leaves of Camellia sinensis from Fujian, minimally processed to preserve delicate sweetness while offering more body than Silver Needle.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bai_mudan_white_tea.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Darjeeling",
+    "slug": "darjeeling",
+    "description": "Often called the 'Champagne of Teas', Darjeeling is grown in the misty Himalayan foothills of West Bengal at elevations up to 2,000m. Its famous muscatel character — a musky, grape-like sweetness — is unique in the tea world and protected by geographical indication.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Darjeeling%2C_India%2C_Darjeeling_tea%2C_Black_tea.jpg",
+    "origin": "Darjeeling, West Bengal, India",
+    "caffeine_level": "high",
+    "temperature_celsius": 90,
+    "steeping_time_minutes": 3,
+    "brewing_instructions": "First flush: use water at 85–90°C and steep 2–3 minutes. Second flush: 90–95°C for 3–4 minutes. Best enjoyed without milk for first flush to appreciate the muscatel notes. Second flush pairs well with a splash of milk.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 3,
+      "slug": "black",
+      "name": "Black Tea",
+      "description": "Fully oxidized leaves producing a bold, robust flavour and deep amber liquor. The most widely consumed true tea type worldwide."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 2,
+        "name": "Floral"
+      },
+      {
+        "id": 11,
+        "name": "Fruity"
+      },
+      {
+        "id": 10,
+        "name": "Malty"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      },
+      {
+        "id": 5,
+        "name": "Improves Focus"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 12,
+          "name": "Darjeeling Black Tea Leaves",
+          "description": "Tea leaves from high-altitude gardens in the Darjeeling district of West Bengal, India. Protected by a geographical indication — only tea grown here can bear the name.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Darjeeling_tea_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Assam",
+    "slug": "assam",
+    "description": "Grown in the lush Brahmaputra river valley of northeastern India — the world's largest tea-growing region. Assam is a robust, full-bodied black tea with a bold malty character, deep amber liquor, and the backbone of most classic British breakfast blends.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/A_cup_of_Assam_Tea_with_lemon.jpg",
+    "origin": "Assam, India",
+    "caffeine_level": "high",
+    "temperature_celsius": 95,
+    "steeping_time_minutes": 4,
+    "brewing_instructions": "Use 1 tsp (2–3g) per 8oz (240ml) of near-boiling water. Steep for 3–5 minutes. Assam stands up beautifully to milk and sugar. The foundation of English Breakfast and Irish Breakfast blends. CTC (crush-tear-curl) Assam brews faster and stronger than whole-leaf.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 3,
+      "slug": "black",
+      "name": "Black Tea",
+      "description": "Fully oxidized leaves producing a bold, robust flavour and deep amber liquor. The most widely consumed true tea type worldwide."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 5,
+        "name": "Bold"
+      },
+      {
+        "id": 10,
+        "name": "Malty"
+      },
+      {
+        "id": 1,
+        "name": "Earthy"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 12,
+        "name": "Improves Energy Levels"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 13,
+          "name": "Assam Black Tea Leaves",
+          "description": "Camellia sinensis var. assamica leaves from the Brahmaputra valley of northeastern India. The world's largest tea-growing region, producing boldly malty, full-bodied teas.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Assam_tea_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Ceylon",
+    "slug": "ceylon",
+    "description": "Sri Lanka's flagship black tea, named for the island's colonial-era name. Grown across multiple high-altitude regions, Ceylon teas are known for their bright amber liquor, brisk character, and distinctive notes of citrus, cocoa, and spice with 50–90mg of caffeine per cup.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ceylon_tea_Leafs.JPG",
+    "origin": "Sri Lanka",
+    "caffeine_level": "high",
+    "temperature_celsius": 95,
+    "steeping_time_minutes": 4,
+    "brewing_instructions": "Use 1 tsp (2–3g) per 8oz (240ml) of near-boiling water. Steep for 3–4 minutes. Excellent with or without milk. Uva region teas (high altitude) have the most distinctive spicy character; Nuwara Eliya produces a lighter, more delicate cup.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 3,
+      "slug": "black",
+      "name": "Black Tea",
+      "description": "Fully oxidized leaves producing a bold, robust flavour and deep amber liquor. The most widely consumed true tea type worldwide."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 5,
+        "name": "Bold"
+      },
+      {
+        "id": 3,
+        "name": "Citrusy"
+      },
+      {
+        "id": 10,
+        "name": "Malty"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 5,
+        "name": "Improves Focus"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 14,
+          "name": "Ceylon Black Tea Leaves",
+          "description": "Black tea leaves from Sri Lanka's high-altitude growing regions including Uva, Nuwara Eliya, and Dimbula, offering a brisk, bright, and citrusy character.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ceylon_tea_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Lapsang Souchong",
+    "slug": "lapsang-souchong",
+    "description": "The world's first black tea, originating from the Wuyi Mountains in 1646. Its large leaves are withered and dried over smouldering pine wood fires, absorbing an intensely smoky, resinous character that has earned it the nickname 'the whiskey of black teas'.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lapsang_Souchong.jpg",
+    "origin": "Wuyi Mountains, Fujian, China",
+    "caffeine_level": "medium",
+    "temperature_celsius": 95,
+    "steeping_time_minutes": 3,
+    "brewing_instructions": "Use 2g per 200ml of water at 90–95°C. Steep for 3–4 minutes. Avoid over-steeping to prevent bitterness. Best enjoyed without milk to fully appreciate the smoke. An acquired taste — loved passionately by those who appreciate it.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 3,
+      "slug": "black",
+      "name": "Black Tea",
+      "description": "Fully oxidized leaves producing a bold, robust flavour and deep amber liquor. The most widely consumed true tea type worldwide."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 8,
+        "name": "Smoky"
+      },
+      {
+        "id": 5,
+        "name": "Bold"
+      },
+      {
+        "id": 17,
+        "name": "Woody"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 6,
+        "name": "Reduces Inflammation"
+      },
+      {
+        "id": 4,
+        "name": "Aids Digestion"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 15,
+          "name": "Pine-Smoked Black Tea Leaves (Lapsang Souchong)",
+          "description": "Camellia sinensis leaves from the Wuyi Mountains, withered and dried over smouldering pine wood fires, absorbing a distinctive smoky, resinous character.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lapsang_souchong_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Da Hong Pao (Big Red Robe)",
+    "slug": "da-hong-pao",
+    "description": "One of China's most legendary teas, grown on the mineral-rich volcanic cliffs of the UNESCO World Heritage Wuyi Mountains. A heavily roasted, complex oolong with layers of stone fruit, roasted caramel, and lingering floral notes that can be re-steeped many times.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Da_Hong_Pao_Oolong_tea_leaf_close.jpg",
+    "origin": "Wuyi Mountains, Fujian, China",
+    "caffeine_level": "medium",
+    "temperature_celsius": 95,
+    "steeping_time_minutes": 3,
+    "brewing_instructions": "Gongfu style: use 5g per 100ml at 95°C. Rinse once for 10 seconds (discard this wash). First infusion: 45 seconds. Add 15–30 seconds per subsequent infusion. Excellent for 6–8 infusions. Western style: 3g per 200ml, 3–4 minutes.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 4,
+      "slug": "oolong",
+      "name": "Oolong Tea",
+      "description": "Partially oxidized leaves ranging from 15–85% oxidation. Spans a wide spectrum from floral and light to rich and roasted."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 1,
+        "name": "Earthy"
+      },
+      {
+        "id": 8,
+        "name": "Smoky"
+      },
+      {
+        "id": 11,
+        "name": "Fruity"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      },
+      {
+        "id": 4,
+        "name": "Aids Digestion"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 16,
+          "name": "Da Hong Pao Oolong Leaves",
+          "description": "Partially oxidized rock oolong leaves from the UNESCO World Heritage Wuyi Mountains of Fujian. Grown in mineral-rich volcanic soil, delivering a unique rocky mineral depth.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Da_hong_pao_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Tie Guan Yin (Iron Goddess of Mercy)",
+    "slug": "tie-guan-yin",
+    "description": "Named after the Buddhist goddess of mercy, this celebrated Fujian oolong is lightly oxidised and tightly rolled into small jade-green pearls. It opens to reveal a delicate, orchid-like floral aroma with a creamy, lingering sweetness that has made it China's favourite oolong.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tieguanyin.jpg",
+    "origin": "Anxi, Fujian, China",
+    "caffeine_level": "medium",
+    "temperature_celsius": 90,
+    "steeping_time_minutes": 3,
+    "brewing_instructions": "Use 5g per 100ml at 90–95°C. Perform a quick rinse (10 seconds) to open the tightly rolled leaves. Steep for 45–90 seconds per infusion. The tightly rolled leaves will continue to slowly unfurl over 5–7 gongfu infusions, evolving in flavour with each.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 4,
+      "slug": "oolong",
+      "name": "Oolong Tea",
+      "description": "Partially oxidized leaves ranging from 15–85% oxidation. Spans a wide spectrum from floral and light to rich and roasted."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 2,
+        "name": "Floral"
+      },
+      {
+        "id": 13,
+        "name": "Creamy"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      },
+      {
+        "id": 10,
+        "name": "Reduces Stress & Anxiety"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 17,
+          "name": "Tie Guan Yin Oolong Leaves",
+          "description": "Lightly oxidized, tightly rolled oolong leaves from Anxi county, Fujian. Named after the Buddhist Goddess of Mercy; prized for their persistent floral, orchid-like aroma.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tieguanyin_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Pu-erh",
+    "slug": "pu-erh",
+    "description": "An aged, post-fermented tea from Yunnan province with over 2,000 years of history, the only tea category that actively improves with age. Shou (ripe) pu-erh is earthy, smooth, and rich; sheng (raw) pu-erh is more complex and evolves over decades like a fine wine.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pu-erh_tea.JPG",
+    "origin": "Yunnan, China",
+    "caffeine_level": "medium",
+    "temperature_celsius": 100,
+    "steeping_time_minutes": 4,
+    "brewing_instructions": "Always rinse first: pour boiling water over 5g of pu-erh per 150ml, steep 10 seconds, discard. This opens the aged leaves. Then steep 30–60 seconds for gongfu style, or 3–4 minutes Western style. Can yield 6–10 or more infusions.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 5,
+      "slug": "puerh",
+      "name": "Pu-erh Tea",
+      "description": "Post-fermented tea from Yunnan, China. Aged via microbial fermentation, developing complex earthy, woody notes that deepen over time."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 1,
+        "name": "Earthy"
+      },
+      {
+        "id": 8,
+        "name": "Smoky"
+      },
+      {
+        "id": 5,
+        "name": "Bold"
+      },
+      {
+        "id": 16,
+        "name": "Nutty"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 8,
+        "name": "Lowers Cholesterol"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      },
+      {
+        "id": 4,
+        "name": "Aids Digestion"
+      },
+      {
+        "id": 7,
+        "name": "Supports Weight Management"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 18,
+          "name": "Aged Pu-erh Leaves",
+          "description": "Post-fermented Camellia sinensis leaves from ancient trees in Yunnan province, aged through microbial fermentation. Like fine wine, quality pu-erh improves over decades.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pu-erh_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "English Breakfast",
+    "slug": "english-breakfast",
+    "description": "The quintessential British morning tea — a robust, full-bodied blend of Assam, Ceylon, and Darjeeling black teas, designed to be paired with milk, hold its own against a hearty breakfast, and provide a strong caffeine start to the day.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mug_of_English_breakfast_tea.jpg",
+    "origin": "United Kingdom",
+    "caffeine_level": "high",
+    "temperature_celsius": 95,
+    "steeping_time_minutes": 4,
+    "brewing_instructions": "Use 1 tsp (2–3g) per 8oz (240ml) of near-boiling water. Steep for 3–4 minutes. Traditionally served with whole milk added to the cup first, then tea poured over. Sugar is optional. The ratio of teas in the blend varies by producer.",
+    "category": {
+      "id": 2,
+      "slug": "blend",
+      "name": "Blend",
+      "description": "An intentional combination of a true tea base with herbs, spices, florals, or essential oils to create a distinct and layered flavour profile."
+    },
+    "tea_type": null,
+    "base_type": {
+      "id": 3,
+      "slug": "black",
+      "name": "Black Tea",
+      "description": "Fully oxidized leaves producing a bold, robust flavour and deep amber liquor. The most widely consumed true tea type worldwide."
+    },
+    "characteristics": [
+      {
+        "id": 5,
+        "name": "Bold"
+      },
+      {
+        "id": 10,
+        "name": "Malty"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 12,
+        "name": "Improves Energy Levels"
+      },
+      {
+        "id": 5,
+        "name": "Improves Focus"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "50%",
+        "ingredient": {
+          "id": 13,
+          "name": "Assam Black Tea Leaves",
+          "description": "Camellia sinensis var. assamica leaves from the Brahmaputra valley of northeastern India. The world's largest tea-growing region, producing boldly malty, full-bodied teas.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Assam_tea_leaves.jpg"
+        }
+      },
+      {
+        "amount": "30%",
+        "ingredient": {
+          "id": 14,
+          "name": "Ceylon Black Tea Leaves",
+          "description": "Black tea leaves from Sri Lanka's high-altitude growing regions including Uva, Nuwara Eliya, and Dimbula, offering a brisk, bright, and citrusy character.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ceylon_tea_leaves.jpg"
+        }
+      },
+      {
+        "amount": "20%",
+        "ingredient": {
+          "id": 12,
+          "name": "Darjeeling Black Tea Leaves",
+          "description": "Tea leaves from high-altitude gardens in the Darjeeling district of West Bengal, India. Protected by a geographical indication — only tea grown here can bear the name.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Darjeeling_tea_leaves.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Masala Chai",
+    "slug": "masala-chai",
+    "description": "India's beloved spiced tea, brewed strong with milk and a warming blend of cardamom, ginger, cinnamon, cloves, and black pepper. Deeply aromatic, invigorating, and comforting — masala chai is as much a ritual as a beverage, sold on every street corner in India.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Masala_Chai.JPG",
+    "origin": "India",
+    "caffeine_level": "high",
+    "temperature_celsius": 100,
+    "steeping_time_minutes": 5,
+    "brewing_instructions": "Simmer 1 tsp (2–3g) of strong black tea with 200ml of water and 200ml of whole milk. Crush and add spices: 3–4 cardamom pods, a cinnamon stick, 3 cloves, 2 slices of ginger, and 3–4 black peppercorns. Bring to a boil twice. Strain and sweeten with jaggery or sugar.",
+    "category": {
+      "id": 2,
+      "slug": "blend",
+      "name": "Blend",
+      "description": "An intentional combination of a true tea base with herbs, spices, florals, or essential oils to create a distinct and layered flavour profile."
+    },
+    "tea_type": null,
+    "base_type": {
+      "id": 3,
+      "slug": "black",
+      "name": "Black Tea",
+      "description": "Fully oxidized leaves producing a bold, robust flavour and deep amber liquor. The most widely consumed true tea type worldwide."
+    },
+    "characteristics": [
+      {
+        "id": 12,
+        "name": "Spicy"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 10,
+        "name": "Malty"
+      },
+      {
+        "id": 13,
+        "name": "Creamy"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 4,
+        "name": "Aids Digestion"
+      },
+      {
+        "id": 12,
+        "name": "Improves Energy Levels"
+      },
+      {
+        "id": 9,
+        "name": "Boosts Immune System"
+      },
+      {
+        "id": 6,
+        "name": "Reduces Inflammation"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "60%",
+        "ingredient": {
+          "id": 13,
+          "name": "Assam Black Tea Leaves",
+          "description": "Camellia sinensis var. assamica leaves from the Brahmaputra valley of northeastern India. The world's largest tea-growing region, producing boldly malty, full-bodied teas.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Assam_tea_leaves.jpg"
+        }
+      },
+      {
+        "amount": "15%",
+        "ingredient": {
+          "id": 25,
+          "name": "Cardamom Pods",
+          "description": "Whole pods of Elettaria cardamomum, a spice native to India. Delivers a complex, eucalyptus-like sweetness and is the defining spice of masala chai.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cardamom_pods.jpg"
+        }
+      },
+      {
+        "amount": "10%",
+        "ingredient": {
+          "id": 26,
+          "name": "Cinnamon Bark",
+          "description": "Dried inner bark of Cinnamomum trees, adding warm, sweet, and slightly woody spice notes. Ceylon cinnamon (true cinnamon) is preferred for delicate blends.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cinnamon_sticks.jpg"
+        }
+      },
+      {
+        "amount": "8%",
+        "ingredient": {
+          "id": 24,
+          "name": "Dried Ginger Root",
+          "description": "Sliced and dried rhizome of Zingiber officinale, used in traditional medicine for millennia across Asia and the Caribbean. Intensely warming, spicy, and aromatic.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ginger_roots.jpg"
+        }
+      },
+      {
+        "amount": "4%",
+        "ingredient": {
+          "id": 28,
+          "name": "Cloves",
+          "description": "Dried flower buds of Syzygium aromaticum, delivering an intensely warm, slightly numbing spice. A cornerstone of masala chai's complex spice base.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cloves_macro.jpg"
+        }
+      },
+      {
+        "amount": "3%",
+        "ingredient": {
+          "id": 27,
+          "name": "Black Pepper",
+          "description": "Dried berries of Piper nigrum, adding a subtle warmth and piquancy to spiced blends. In chai, black pepper enhances bioavailability of other spice compounds.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Black_pepper.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Jasmine Green Tea",
+    "slug": "jasmine-green",
+    "description": "China's most aromatic tea, crafted by layering freshly harvested jasmine blossoms over green tea leaves for several nights, allowing the leaves to absorb the fragrance naturally. The result is a delicate, perfumed cup that is simultaneously floral and refreshing.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jasmine_flower_tea_in_Shanghai.jpg",
+    "origin": "Fujian & Guangxi, China",
+    "caffeine_level": "medium",
+    "temperature_celsius": 80,
+    "steeping_time_minutes": 2,
+    "brewing_instructions": "Use 2g per 200ml of water at 80–85°C. Steep for 2–3 minutes. Never use boiling water — it damages the delicate jasmine aroma. Excellent for 2–3 infusions. Jasmine pearls (a rolled variety) are especially beautiful to watch unfurl in a glass cup.",
+    "category": {
+      "id": 2,
+      "slug": "blend",
+      "name": "Blend",
+      "description": "An intentional combination of a true tea base with herbs, spices, florals, or essential oils to create a distinct and layered flavour profile."
+    },
+    "tea_type": null,
+    "base_type": {
+      "id": 1,
+      "slug": "green",
+      "name": "Green Tea",
+      "description": "Unoxidized leaves steamed or pan-fired immediately after harvest to halt oxidation. Yields a fresh, grassy flavour with high antioxidant content."
+    },
+    "characteristics": [
+      {
+        "id": 2,
+        "name": "Floral"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 6,
+        "name": "Grassy"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 10,
+        "name": "Reduces Stress & Anxiety"
+      },
+      {
+        "id": 2,
+        "name": "Promotes Sleep & Relaxation"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "95%",
+        "ingredient": {
+          "id": 1,
+          "name": "Green Tea Leaves",
+          "description": "Unoxidized leaves of Camellia sinensis, pan-fired or steamed to halt oxidation and preserve green colour and grassy flavour.",
+          "image_url": "https://images.unsplash.com/photo-1596431969065-4f4044ae7dce?w=800&q=80"
+        }
+      },
+      {
+        "amount": "5%",
+        "ingredient": {
+          "id": 19,
+          "name": "Jasmine Flowers",
+          "description": "Freshly harvested blossoms of Jasminum officinale, traditionally layered with green tea leaves overnight to allow natural scent absorption without chemicals.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jasminum_sambac.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Moroccan Mint Tea",
+    "slug": "moroccan-mint",
+    "description": "The cornerstone of North African hospitality, this vibrant blend of gunpowder green tea and fresh spearmint is traditionally poured from a great height into ornate glasses to create a froth. Sweet, minty, and deeply refreshing — serving it to a guest is an act of welcome.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Moroccan_Mint_Tea_-_1.jpg",
+    "origin": "Morocco, North Africa",
+    "caffeine_level": "medium",
+    "temperature_celsius": 100,
+    "steeping_time_minutes": 5,
+    "brewing_instructions": "Steep 1 tsp (3g) of gunpowder green in boiling water for 1 minute, then discard this bitterness-removing first steep. Refill the pot with boiling water, add a generous handful of fresh spearmint and sugar (traditionally 2–3 tsp). Steep 5 minutes. Pour from height to aerate.",
+    "category": {
+      "id": 2,
+      "slug": "blend",
+      "name": "Blend",
+      "description": "An intentional combination of a true tea base with herbs, spices, florals, or essential oils to create a distinct and layered flavour profile."
+    },
+    "tea_type": null,
+    "base_type": {
+      "id": 1,
+      "slug": "green",
+      "name": "Green Tea",
+      "description": "Unoxidized leaves steamed or pan-fired immediately after harvest to halt oxidation. Yields a fresh, grassy flavour with high antioxidant content."
+    },
+    "characteristics": [
+      {
+        "id": 4,
+        "name": "Minty"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 18,
+        "name": "Refreshing"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 4,
+        "name": "Aids Digestion"
+      },
+      {
+        "id": 9,
+        "name": "Boosts Immune System"
+      },
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "70%",
+        "ingredient": {
+          "id": 9,
+          "name": "Gunpowder Green Tea Leaves",
+          "description": "Green tea leaves from Zhejiang province, tightly rolled into small pellets resembling old musket powder. Rolling preserves freshness and concentrates flavour.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gunpowder_tea_leaves.jpg"
+        }
+      },
+      {
+        "amount": "30%",
+        "ingredient": {
+          "id": 20,
+          "name": "Spearmint Leaves",
+          "description": "Leaves of Mentha spicata, lighter and sweeter than peppermint with lower menthol content. The traditional mint variety used in Moroccan and Middle Eastern mint tea.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Spearmint2.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Rooibos",
+    "slug": "rooibos",
+    "description": "South Africa's beloved 'red bush' tea, made from the fermented leaves of Aspalathus linearis — a plant that grows exclusively in the Cederberg mountains. Naturally sweet, caffeine-free, and rich in aspalathin (a unique antioxidant found nowhere else in nature).",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cup_of_Rooibos_in_Poznan.jpg",
+    "origin": "Cederberg Mountains, Western Cape, South Africa",
+    "caffeine_level": "none",
+    "temperature_celsius": 100,
+    "steeping_time_minutes": 5,
+    "brewing_instructions": "Use 1 tsp (2–3g) per 8oz (240ml) of boiling water. Steep for 5–10 minutes — unlike true teas, rooibos does not become bitter with extended steeping, only stronger. Excellent with or without milk, and naturally sweet enough to enjoy without sugar.",
+    "category": {
+      "id": 3,
+      "slug": "tisane",
+      "name": "Tisane (Herbal Tea)",
+      "description": "Herbal infusions made from dried herbs, flowers, fruits, roots, or spices. Contains no Camellia sinensis leaves and is therefore naturally caffeine-free."
+    },
+    "tea_type": null,
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 16,
+        "name": "Nutty"
+      },
+      {
+        "id": 1,
+        "name": "Earthy"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      },
+      {
+        "id": 8,
+        "name": "Lowers Cholesterol"
+      },
+      {
+        "id": 6,
+        "name": "Reduces Inflammation"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 21,
+          "name": "Rooibos Herb (Aspalathus linearis)",
+          "description": "Fermented leaves and stems of a shrub native exclusively to the Cederberg mountains of South Africa. Rich in aspalathin, a unique antioxidant found nowhere else in nature.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Aspalathus_linearis.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Hibiscus",
+    "slug": "hibiscus",
+    "description": "A vibrant ruby-red tisane brewed from the dried calyces of Hibiscus sabdariffa, known for its brilliant colour and tart, cranberry-like flavour. Packed with vitamin C and anthocyanins, hibiscus is one of the most visually striking and health-supporting teas in the world.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/A_glass_of_hibiscus_tea_01.jpg",
+    "origin": "Egypt, Mexico & West Africa",
+    "caffeine_level": "none",
+    "temperature_celsius": 100,
+    "steeping_time_minutes": 5,
+    "brewing_instructions": "Use 1–2 tsp (2–4g) of dried flowers per 8oz (240ml) of boiling water. Steep for 5–7 minutes for maximum colour and flavour. Excellent served iced — refrigerate after brewing. Add honey or a cinnamon stick to balance the tartness. Known as 'karkadé' in Egypt and 'agua de jamaica' in Mexico.",
+    "category": {
+      "id": 3,
+      "slug": "tisane",
+      "name": "Tisane (Herbal Tea)",
+      "description": "Herbal infusions made from dried herbs, flowers, fruits, roots, or spices. Contains no Camellia sinensis leaves and is therefore naturally caffeine-free."
+    },
+    "tea_type": null,
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 14,
+        "name": "Tart"
+      },
+      {
+        "id": 11,
+        "name": "Fruity"
+      },
+      {
+        "id": 2,
+        "name": "Floral"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 3,
+        "name": "Boosts Heart Health"
+      },
+      {
+        "id": 6,
+        "name": "Reduces Inflammation"
+      },
+      {
+        "id": 9,
+        "name": "Boosts Immune System"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 22,
+          "name": "Dried Hibiscus Flowers",
+          "description": "Dried calyces of Hibiscus sabdariffa, delivering a brilliant ruby-red colour and intensely tart, cranberry-like flavour. Rich in vitamin C and anthocyanins.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hibiscus_sabdariffa.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Peppermint",
+    "slug": "peppermint",
+    "description": "A crisp, cooling tisane made from the dried leaves of Mentha piperita — a natural hybrid of spearmint and watermint. One of the world's most popular herbal teas, prized for its intensely clean menthol character, digestive benefits, and invigorating clarity.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Peppermint_tea.jpg",
+    "origin": "Europe & North America",
+    "caffeine_level": "none",
+    "temperature_celsius": 100,
+    "steeping_time_minutes": 5,
+    "brewing_instructions": "Use 1–2 tsp (2–4g) of dried peppermint per 8oz (240ml) of boiling water. Steep covered for 5–7 minutes to trap the volatile menthol oils. Fresh peppermint leaves can be substituted — use 2–3 times the quantity. Peppermint does not turn bitter with extended steeping.",
+    "category": {
+      "id": 3,
+      "slug": "tisane",
+      "name": "Tisane (Herbal Tea)",
+      "description": "Herbal infusions made from dried herbs, flowers, fruits, roots, or spices. Contains no Camellia sinensis leaves and is therefore naturally caffeine-free."
+    },
+    "tea_type": null,
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 4,
+        "name": "Minty"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 6,
+        "name": "Grassy"
+      },
+      {
+        "id": 18,
+        "name": "Refreshing"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 4,
+        "name": "Aids Digestion"
+      },
+      {
+        "id": 10,
+        "name": "Reduces Stress & Anxiety"
+      },
+      {
+        "id": 9,
+        "name": "Boosts Immune System"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 5,
+          "name": "Peppermint Leaves",
+          "description": "Dried leaves of Mentha piperita, a hybrid mint cross prized for its high menthol content and intensely cooling, refreshing character.",
+          "image_url": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=800&q=80"
+        }
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Ginger Root",
+    "slug": "ginger-root",
+    "description": "A warming and invigorating tisane brewed from dried slices of Zingiber officinale root. Sharp, fiery, and deeply aromatic, ginger tea has been used in traditional Ayurvedic and Chinese medicine for millennia as a remedy for nausea, poor digestion, and inflammation.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ginger_tea.jpg",
+    "origin": "India, China & Caribbean",
+    "caffeine_level": "none",
+    "temperature_celsius": 100,
+    "steeping_time_minutes": 5,
+    "brewing_instructions": "Use 1 tsp (2–3g) of dried ginger root per 8oz (240ml) of boiling water. Steep for 5–10 minutes — longer brewing creates more heat. For fresh ginger, use 3–4 thin slices and simmer for 10 minutes. Add honey and a squeeze of fresh lemon to round out the spice beautifully.",
+    "category": {
+      "id": 3,
+      "slug": "tisane",
+      "name": "Tisane (Herbal Tea)",
+      "description": "Herbal infusions made from dried herbs, flowers, fruits, roots, or spices. Contains no Camellia sinensis leaves and is therefore naturally caffeine-free."
+    },
+    "tea_type": null,
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 12,
+        "name": "Spicy"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 1,
+        "name": "Earthy"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 4,
+        "name": "Aids Digestion"
+      },
+      {
+        "id": 6,
+        "name": "Reduces Inflammation"
+      },
+      {
+        "id": 9,
+        "name": "Boosts Immune System"
+      },
+      {
+        "id": 12,
+        "name": "Improves Energy Levels"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 24,
+          "name": "Dried Ginger Root",
+          "description": "Sliced and dried rhizome of Zingiber officinale, used in traditional medicine for millennia across Asia and the Caribbean. Intensely warming, spicy, and aromatic.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ginger_roots.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Lavender",
+    "slug": "lavender",
+    "description": "A soothing floral tisane brewed from the dried buds of Lavandula angustifolia. With a delicate, perfumed sweetness and an unmistakable calming aroma, lavender tea has long been treasured in European herbal traditions as an aid to anxiety, insomnia, and restlessness.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lavender_Tea_216_365_(42030965680).jpg",
+    "origin": "Provence, France & Mediterranean",
+    "caffeine_level": "none",
+    "temperature_celsius": 95,
+    "steeping_time_minutes": 5,
+    "brewing_instructions": "Use 1 tsp (1–2g) of dried lavender buds per 8oz (240ml) of water at 90–95°C (avoid boiling — it can make lavender medicinal). Steep for 5 minutes. Pairs beautifully with honey or a slice of lemon. Excellent blended with chamomile for a deeper sleep-promoting effect.",
+    "category": {
+      "id": 3,
+      "slug": "tisane",
+      "name": "Tisane (Herbal Tea)",
+      "description": "Herbal infusions made from dried herbs, flowers, fruits, roots, or spices. Contains no Camellia sinensis leaves and is therefore naturally caffeine-free."
+    },
+    "tea_type": null,
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 2,
+        "name": "Floral"
+      },
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 13,
+        "name": "Creamy"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 2,
+        "name": "Promotes Sleep & Relaxation"
+      },
+      {
+        "id": 10,
+        "name": "Reduces Stress & Anxiety"
+      },
+      {
+        "id": 6,
+        "name": "Reduces Inflammation"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 23,
+          "name": "Dried Lavender Buds",
+          "description": "Dried flower buds of Lavandula angustifolia, offering a delicate floral sweetness and unmistakable calming aroma. Grown primarily in Provence, France.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lavandula_angustifolia.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Junshan Yinzhen",
+    "slug": "junshan-yinzhen",
+    "description": "One of China's Ten Famous Teas and the most celebrated yellow tea in the world. Harvested exclusively from Junshan Island on Dongting Lake in Hunan, each batch uses only the tenderest first-flush buds plucked in a brief spring window. The distinctive sealed yellowing step (闷黄, mén huáng) gently mellows the leaves, yielding a cup that sits between green and white tea — less grassy than the former, with more body than the latter. Expect mellow sweetness, light grain, a whisper of apricot, and a clean lingering finish.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Junshan_Yinzhen.jpg",
+    "origin": "Junshan Island, Hunan, China",
+    "caffeine_level": "low",
+    "temperature_celsius": 70,
+    "steeping_time_minutes": 3,
+    "brewing_instructions": "Use 3g per 150ml of water at 70–75°C — avoid boiling water, which will mask the subtle sweetness. Steep for 2–3 minutes. Use a glass vessel if possible to watch the silver needle buds dance upright as they unfurl. Can be re-steeped 2–3 times, each infusion revealing slightly different notes.",
+    "category": {
+      "id": 1,
+      "slug": "true-tea",
+      "name": "True Tea",
+      "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented)."
+    },
+    "tea_type": {
+      "id": 6,
+      "slug": "yellow",
+      "name": "Yellow Tea",
+      "description": "Rare Chinese tea processed like green tea but with an added sealed yellowing step (闷黄, mén huáng). The slow oxidation creates a mellower, sweeter cup than green tea, with less astringency and a soft, lingering finish."
+    },
+    "base_type": null,
+    "characteristics": [
+      {
+        "id": 9,
+        "name": "Sweet"
+      },
+      {
+        "id": 6,
+        "name": "Grassy"
+      },
+      {
+        "id": 2,
+        "name": "Floral"
+      },
+      {
+        "id": 16,
+        "name": "Nutty"
+      }
+    ],
+    "health_benefits": [
+      {
+        "id": 1,
+        "name": "Rich in Antioxidants"
+      },
+      {
+        "id": 4,
+        "name": "Aids Digestion"
+      },
+      {
+        "id": 6,
+        "name": "Reduces Inflammation"
+      },
+      {
+        "id": 9,
+        "name": "Boosts Immune System"
+      }
+    ],
+    "composition": [
+      {
+        "amount": "100%",
+        "ingredient": {
+          "id": 29,
+          "name": "Yellow Tea Buds (Junshan Yinzhen)",
+          "description": "Hand-picked first-flush needle buds from Junshan Island, Hunan, China. Distinguished by their uniform silver-downy appearance and the unique sealed yellowing (闷黄) step that sets yellow tea apart from all other true-tea types.",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Junshan_Yinzhen.jpg"
+        }
+      }
+    ]
+  }
+]

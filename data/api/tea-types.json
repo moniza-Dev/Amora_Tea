@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "slug": "green",
+    "name": "Green Tea",
+    "description": "Unoxidized leaves steamed or pan-fired immediately after harvest to halt oxidation. Yields a fresh, grassy flavour with high antioxidant content.",
+    "tea_count": 5
+  },
+  {
+    "id": 2,
+    "slug": "white",
+    "name": "White Tea",
+    "description": "Minimally processed young buds and leaves, simply withered and dried. Produces a delicate, subtly sweet liquor with very low caffeine.",
+    "tea_count": 2
+  },
+  {
+    "id": 3,
+    "slug": "black",
+    "name": "Black Tea",
+    "description": "Fully oxidized leaves producing a bold, robust flavour and deep amber liquor. The most widely consumed true tea type worldwide.",
+    "tea_count": 4
+  },
+  {
+    "id": 4,
+    "slug": "oolong",
+    "name": "Oolong Tea",
+    "description": "Partially oxidized leaves ranging from 15–85% oxidation. Spans a wide spectrum from floral and light to rich and roasted.",
+    "tea_count": 2
+  },
+  {
+    "id": 5,
+    "slug": "puerh",
+    "name": "Pu-erh Tea",
+    "description": "Post-fermented tea from Yunnan, China. Aged via microbial fermentation, developing complex earthy, woody notes that deepen over time.",
+    "tea_count": 1
+  },
+  {
+    "id": 6,
+    "slug": "yellow",
+    "name": "Yellow Tea",
+    "description": "Rare Chinese tea processed like green tea but with an added sealed yellowing step (闷黄, mén huáng). The slow oxidation creates a mellower, sweeter cup than green tea, with less astringency and a soft, lingering finish.",
+    "tea_count": 1
+  }
+]

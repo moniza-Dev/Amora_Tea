@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Earthy"
+  },
+  {
+    "id": 2,
+    "name": "Floral"
+  },
+  {
+    "id": 3,
+    "name": "Citrusy"
+  },
+  {
+    "id": 4,
+    "name": "Minty"
+  },
+  {
+    "id": 5,
+    "name": "Bold"
+  },
+  {
+    "id": 6,
+    "name": "Grassy"
+  },
+  {
+    "id": 7,
+    "name": "Umami"
+  },
+  {
+    "id": 8,
+    "name": "Smoky"
+  },
+  {
+    "id": 9,
+    "name": "Sweet"
+  },
+  {
+    "id": 10,
+    "name": "Malty"
+  },
+  {
+    "id": 11,
+    "name": "Fruity"
+  },
+  {
+    "id": 12,
+    "name": "Spicy"
+  },
+  {
+    "id": 13,
+    "name": "Creamy"
+  },
+  {
+    "id": 14,
+    "name": "Tart"
+  },
+  {
+    "id": 15,
+    "name": "Vegetal"
+  },
+  {
+    "id": 16,
+    "name": "Nutty"
+  },
+  {
+    "id": 17,
+    "name": "Woody"
+  },
+  {
+    "id": 18,
+    "name": "Refreshing"
+  }
+]

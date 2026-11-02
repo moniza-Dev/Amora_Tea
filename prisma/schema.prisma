@@ -1,0 +1,222 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// Money is always stored as integer cents (USD). SQLite has no enums/lists: use String/Json.
+
+/// Commerce data layered on top of the read-only Tea API. teaSlug is null for CUSTOM products and gift sets.
+model ProductOverlay {
+  id             String   @id @default(cuid())
+  slug           String   @unique // public URL slug; equals teaSlug for API teas
+  teaSlug        String?  @unique
+  kind           String   @default("tea") // tea | custom | gift_set
+  name           String? // required for custom/gift_set; overrides API name when set
+  nameKm         String?
+  description    String? // custom products (API teas use API description)
+  tags           Json     @default("[]") // string[] e.g. ["cinnamon","gift"]
+  sku            String   @unique
+  priceCents     Int // "from" price (smallest weight); used for listing and sorting
+  compareAtCents Int?
+  weights        Json     @default("[]") // [{ grams, priceCents, compareAtCents? }] 50/100/250
+  stock          Int      @default(0)
+  imageUrl       String?
+  gallery        Json     @default("[]") // string[]
+  details        Json? // custom products: { ingredients, benefits, flavor, brewing }
+  ratingAvg      Float    @default(0) // cached from approved Review rows (lib/ratings.ts); 0 = no reviews
+  ratingCount    Int      @default(0)
+  isBestseller   Boolean  @default(false)
+  isFeatured     Boolean  @default(false)
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  wishlist WishlistItem[]
+  reviews  Review[]
+
+  @@index([isBestseller])
+  @@index([isFeatured])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  passwordHash  String?
+  phone         String?
+  role          String    @default("customer") // customer | shop (the shop owner/staff account)
+  createdAt     DateTime  @default(now())
+
+  accounts  Account[]
+  sessions  Session[]
+  addresses Address[]
+  orders    Order[]
+  wishlist  WishlistItem[]
+  reviews   Review[]
+}
+
+// NextAuth (Prisma adapter) tables
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Address {
+  id        String  @id @default(cuid())
+  userId    String
+  label     String  @default("Home")
+  fullName  String
+  phone     String
+  province  String
+  district  String?
+  line1     String
+  notes     String?
+  isDefault Boolean @default(false)
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model WishlistItem {
+  userId    String
+  slug      String
+  createdAt DateTime       @default(now())
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product   ProductOverlay @relation(fields: [slug], references: [slug], onDelete: Cascade)
+
+  @@id([userId, slug])
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  number          String      @unique // human-friendly, e.g. AT-240117-4821
+  userId          String?
+  email           String
+  phone           String
+  fullName        String
+  province        String
+  district        String?
+  address         String
+  notes           String?
+  deliveryMethod  String      @default("standard") // standard | express | pickup
+  paymentMethod   String // stripe | cod | khqr
+  paymentStatus   String      @default("pending") // pending | paid | failed | refunded
+  status          String      @default("pending") // pending | confirmed | processing | shipped | delivered | cancelled
+  subtotalCents   Int
+  discountCents   Int         @default(0)
+  shippingCents   Int         @default(0)
+  totalCents      Int
+  couponCode      String?
+  stripeSessionId String?     @unique
+  paymentProofUrl String? // KHQR/Bakong receipt upload
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  user            User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  items           OrderItem[]
+
+  @@index([email])
+  @@index([status])
+}
+
+model OrderItem {
+  id             String  @id @default(cuid())
+  orderId        String
+  slug           String
+  name           String
+  nameKm         String?
+  grams          Int
+  quantity       Int
+  unitPriceCents Int
+  imageUrl       String?
+  order          Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}
+
+model Coupon {
+  id                String    @id @default(cuid())
+  code              String    @unique
+  percentOff        Int
+  firstOrderOnly    Boolean   @default(false)
+  minSubtotalCents  Int       @default(0)
+  usageLimit        Int?
+  timesUsed         Int       @default(0)
+  expiresAt         DateTime?
+  isActive          Boolean   @default(true)
+  createdAt         DateTime  @default(now())
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  body      String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String
+  content     String // MDX source
+  coverUrl    String?
+  author      String   @default("Amora-Tea")
+  isPublished Boolean  @default(true)
+  publishedAt DateTime @default(now())
+}
+
+model Review {
+  id         String         @id @default(cuid())
+  slug       String
+  userId     String?
+  name       String
+  rating     Int // 1-5
+  title      String?
+  body       String
+  isApproved Boolean        @default(false)
+  createdAt  DateTime       @default(now())
+  product    ProductOverlay @relation(fields: [slug], references: [slug], onDelete: Cascade)
+  user       User?          @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([slug, isApproved])
+}

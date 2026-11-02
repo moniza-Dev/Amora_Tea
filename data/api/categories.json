@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "slug": "true-tea",
+    "name": "True Tea",
+    "description": "Teas made from the leaves of the Camellia sinensis plant. Processing method determines type: green (unoxidized), white (minimal), oolong (partial), black (full), and pu-erh (post-fermented).",
+    "tea_count": 15
+  },
+  {
+    "id": 2,
+    "slug": "blend",
+    "name": "Blend",
+    "description": "An intentional combination of a true tea base with herbs, spices, florals, or essential oils to create a distinct and layered flavour profile.",
+    "tea_count": 5
+  },
+  {
+    "id": 3,
+    "slug": "tisane",
+    "name": "Tisane (Herbal Tea)",
+    "description": "Herbal infusions made from dried herbs, flowers, fruits, roots, or spices. Contains no Camellia sinensis leaves and is therefore naturally caffeine-free.",
+    "tea_count": 6
+  }
+]

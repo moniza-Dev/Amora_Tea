@@ -1,0 +1,176 @@
+[
+  {
+    "id": 1,
+    "name": "Green Tea Leaves",
+    "description": "Unoxidized leaves of Camellia sinensis, pan-fired or steamed to halt oxidation and preserve green colour and grassy flavour.",
+    "image_url": "https://images.unsplash.com/photo-1596431969065-4f4044ae7dce?w=800&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Black Tea Leaves",
+    "description": "Fully oxidized leaves of Camellia sinensis, producing a deep amber liquor and robust, malty flavour.",
+    "image_url": "https://images.unsplash.com/photo-1571216954605-8273cfca1788?w=800&q=80"
+  },
+  {
+    "id": 3,
+    "name": "Bergamot Oil",
+    "description": "Cold-pressed essential oil from the rind of the bergamot orange (Citrus bergamia), a fragrant citrus fruit grown primarily in Calabria, Italy.",
+    "image_url": "https://images.unsplash.com/photo-1615486511484-92e1728271e8?w=800&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Dried Chamomile Flowers",
+    "description": "Daisy-like flowers of Matricaria chamomilla, dried to concentrate their gentle apple-like sweetness and calming properties.",
+    "image_url": "https://images.unsplash.com/photo-1596486001710-1a739509b552?w=800&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Peppermint Leaves",
+    "description": "Dried leaves of Mentha piperita, a hybrid mint cross prized for its high menthol content and intensely cooling, refreshing character.",
+    "image_url": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=800&q=80"
+  },
+  {
+    "id": 6,
+    "name": "Shade-Grown Green Tea Leaves",
+    "description": "Camellia sinensis leaves grown under shade covers for 20+ days before harvest. Reduced sunlight triggers the plant to produce more chlorophyll, L-theanine, and caffeine, resulting in intense umami sweetness.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyokuro_tea_leaves.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Stone-Ground Matcha Powder",
+    "description": "Tencha (shade-grown tea) leaves that have been stone-ground into an ultra-fine powder. Unlike steeped teas, the entire leaf is consumed, maximising nutrient intake.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Matcha_powder.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Dragonwell (Long Jing) Tea Leaves",
+    "description": "Flat, sword-shaped leaves from the hills of Hangzhou, pan-fired in a wok to create a distinctive chestnut-sweet flavour. One of China's ten famous teas.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Longjing_tea_leaves.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Gunpowder Green Tea Leaves",
+    "description": "Green tea leaves from Zhejiang province, tightly rolled into small pellets resembling old musket powder. Rolling preserves freshness and concentrates flavour.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gunpowder_tea_leaves.jpg"
+  },
+  {
+    "id": 10,
+    "name": "White Tea Buds (Bai Hao Yin Zhen)",
+    "description": "Exclusively the youngest, silver-downy, unopened buds of Camellia sinensis harvested during a narrow early spring window in Fujian. The most prized white tea material.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Yin_zhen_tea.jpg"
+  },
+  {
+    "id": 11,
+    "name": "White Tea Leaves & Buds (Bai Mu Dan)",
+    "description": "One bud and two young leaves of Camellia sinensis from Fujian, minimally processed to preserve delicate sweetness while offering more body than Silver Needle.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bai_mudan_white_tea.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Darjeeling Black Tea Leaves",
+    "description": "Tea leaves from high-altitude gardens in the Darjeeling district of West Bengal, India. Protected by a geographical indication — only tea grown here can bear the name.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Darjeeling_tea_leaves.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Assam Black Tea Leaves",
+    "description": "Camellia sinensis var. assamica leaves from the Brahmaputra valley of northeastern India. The world's largest tea-growing region, producing boldly malty, full-bodied teas.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Assam_tea_leaves.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Ceylon Black Tea Leaves",
+    "description": "Black tea leaves from Sri Lanka's high-altitude growing regions including Uva, Nuwara Eliya, and Dimbula, offering a brisk, bright, and citrusy character.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ceylon_tea_leaves.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Pine-Smoked Black Tea Leaves (Lapsang Souchong)",
+    "description": "Camellia sinensis leaves from the Wuyi Mountains, withered and dried over smouldering pine wood fires, absorbing a distinctive smoky, resinous character.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lapsang_souchong_leaves.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Da Hong Pao Oolong Leaves",
+    "description": "Partially oxidized rock oolong leaves from the UNESCO World Heritage Wuyi Mountains of Fujian. Grown in mineral-rich volcanic soil, delivering a unique rocky mineral depth.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Da_hong_pao_leaves.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Tie Guan Yin Oolong Leaves",
+    "description": "Lightly oxidized, tightly rolled oolong leaves from Anxi county, Fujian. Named after the Buddhist Goddess of Mercy; prized for their persistent floral, orchid-like aroma.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tieguanyin_leaves.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Aged Pu-erh Leaves",
+    "description": "Post-fermented Camellia sinensis leaves from ancient trees in Yunnan province, aged through microbial fermentation. Like fine wine, quality pu-erh improves over decades.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pu-erh_leaves.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Jasmine Flowers",
+    "description": "Freshly harvested blossoms of Jasminum officinale, traditionally layered with green tea leaves overnight to allow natural scent absorption without chemicals.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jasminum_sambac.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Spearmint Leaves",
+    "description": "Leaves of Mentha spicata, lighter and sweeter than peppermint with lower menthol content. The traditional mint variety used in Moroccan and Middle Eastern mint tea.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Spearmint2.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Rooibos Herb (Aspalathus linearis)",
+    "description": "Fermented leaves and stems of a shrub native exclusively to the Cederberg mountains of South Africa. Rich in aspalathin, a unique antioxidant found nowhere else in nature.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Aspalathus_linearis.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Dried Hibiscus Flowers",
+    "description": "Dried calyces of Hibiscus sabdariffa, delivering a brilliant ruby-red colour and intensely tart, cranberry-like flavour. Rich in vitamin C and anthocyanins.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hibiscus_sabdariffa.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Dried Lavender Buds",
+    "description": "Dried flower buds of Lavandula angustifolia, offering a delicate floral sweetness and unmistakable calming aroma. Grown primarily in Provence, France.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lavandula_angustifolia.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Dried Ginger Root",
+    "description": "Sliced and dried rhizome of Zingiber officinale, used in traditional medicine for millennia across Asia and the Caribbean. Intensely warming, spicy, and aromatic.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ginger_roots.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Cardamom Pods",
+    "description": "Whole pods of Elettaria cardamomum, a spice native to India. Delivers a complex, eucalyptus-like sweetness and is the defining spice of masala chai.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cardamom_pods.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Cinnamon Bark",
+    "description": "Dried inner bark of Cinnamomum trees, adding warm, sweet, and slightly woody spice notes. Ceylon cinnamon (true cinnamon) is preferred for delicate blends.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cinnamon_sticks.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Black Pepper",
+    "description": "Dried berries of Piper nigrum, adding a subtle warmth and piquancy to spiced blends. In chai, black pepper enhances bioavailability of other spice compounds.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Black_pepper.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Cloves",
+    "description": "Dried flower buds of Syzygium aromaticum, delivering an intensely warm, slightly numbing spice. A cornerstone of masala chai's complex spice base.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cloves_macro.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Yellow Tea Buds (Junshan Yinzhen)",
+    "description": "Hand-picked first-flush needle buds from Junshan Island, Hunan, China. Distinguished by their uniform silver-downy appearance and the unique sealed yellowing (闷黄) step that sets yellow tea apart from all other true-tea types.",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Junshan_Yinzhen.jpg"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-04-04T08:30:34.922Z",
+  "tea_count": 26,
+  "category_count": 3,
+  "tea_type_count": 6,
+  "ingredient_count": 29,
+  "base_url": "https://theteaapi.com/api/v1",
+  "endpoints": [
+    "/api/v1/meta.json",
+    "/api/v1/teas.json",
+    "/api/v1/teas/{slug}.json",
+    "/api/v1/categories.json",
+    "/api/v1/tea-types.json",
+    "/api/v1/ingredients.json",
+    "/api/v1/characteristics.json",
+    "/api/v1/health-benefits.json"
+  ]
+}
