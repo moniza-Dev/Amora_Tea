@@ -127,4 +127,8 @@ export const CUSTOM_PRODUCTS: CustomSeed[] = [
     slug: "tea-collection-gift-box", name: "Tea Collection Gift Box", kind: "gift_set", tags: ["gift"], ...setPrice([TIN.jasmine, TIN.earlGrey, TIN.chamomile, TIN.rooibos, TIN.hibiscus, TIN.chamomile, EXTRA.keepsakeBox]),
     description: "Six 50g tins (Jasmine Green, Black, Chamomile, Spiced, Hibiscus, Chamomile & Lavender) in a floral keepsake box with satin lining.",
   },
+  {
+    slug: "celebration-gift-set", name: "Celebration Gift Set", kind: "gift_set", tags: ["gift"], ...setPrice([TIN.jasmine, TIN.oolong, TIN.earlGrey, TIN.hibiscus, TIN.chamomile, TIN.rooibos, EXTRA.keepsakeBox]),
+    description: "Six 50g tins (Jasmine Green, Oolong, Earl Grey, Hibiscus, Chamomile & Lavender, Lemongrass) in a green keepsake gift box.",
+  },
 ];
