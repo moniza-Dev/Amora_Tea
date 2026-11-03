@@ -51,6 +51,7 @@ export const GIFT_SETS = [
   { slug: "wellness-trio-set", title: "Good tea, better days", includes: ["3 × 50g tins: Jasmine Green, Hibiscus, Earl Grey", "Amora ceramic mug", "Pink gift box"], src: "/images/gifts/pink-box.webp", alt: "Pink gift box with three tins and a white Amora mug" },
   { slug: "keepsake-gift-box", title: "A little cup of happiness", includes: ["4 × 50g tins: Jasmine Green, Hibiscus, Oolong, Earl Grey", "Sage-green keepsake box", "Handwritten-style note card"], src: "/images/gifts/gift-box-rectangle.webp", alt: "Open sage-green gift box with four tins and a note card" },
   { slug: "tea-collection-gift-box", title: "Six flavours, one box", includes: ["6 × 50g tins: Jasmine Green, Black, Chamomile, Spiced, Hibiscus, Chamomile & Lavender", "Floral keepsake box", "Satin lining"], src: "/images/gifts/gift-collection-box.webp", alt: "Tea Collection gift box with six premium tins in a garden" },
+  { slug: "celebration-gift-set", title: "Wrapped with love", includes: ["3 × 50g tins: White, Oolong, Cinnamon", "Leaf-print keepsake box with satin ribbon", "Matching Amora gift bag"], src: "/images/gifts/gift-collection-set.webp", alt: "Amora gift collection with a ribboned box of three tins, a gift bag, a glass mug set and a rooibos box" },
 ] as const;
 
 /** Garden photo set shown on the Collections page (public/images/scenes). */
@@ -63,6 +64,7 @@ export const TIN_SCENES = [
   { name: "Rooibos Tea", src: "/images/scenes/rooibos.webp" },
 ] as const;
 export const TEA_COLLECTION_BOX = "/images/scenes/tea-collection-box.webp";
+
 
 const lc = (s: string) => s.toLowerCase();
 
