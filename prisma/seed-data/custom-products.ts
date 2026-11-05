@@ -131,4 +131,24 @@ export const CUSTOM_PRODUCTS: CustomSeed[] = [
     slug: "celebration-gift-set", name: "Celebration Gift Set", kind: "gift_set", tags: ["gift"], ...setPrice([TIN.jasmine, TIN.oolong, TIN.earlGrey, TIN.hibiscus, TIN.chamomile, TIN.rooibos, EXTRA.keepsakeBox]),
     description: "Six 50g tins (Jasmine Green, Oolong, Earl Grey, Hibiscus, Chamomile & Lavender, Lemongrass) in a green keepsake gift box.",
   },
+  {
+    slug: "heart-gift-set", name: "Heart Gift Set", kind: "gift_set", tags: ["gift"], ...setPrice([TIN.jasmine, TIN.hibiscus, TIN.chamomile, EXTRA.smallGiftBox]),
+    description: "A heart-themed Amora gift set with premium 50g tea tins, ready to give.",
+  },
+  {
+    slug: "six-flavors-gift-set", name: "Six Flavors Gift Set", kind: "gift_set", tags: ["gift"], ...setPrice([TIN.jasmine, TIN.oolong, TIN.earlGrey, TIN.hibiscus, TIN.chamomile, TIN.rooibos, EXTRA.keepsakeBox]),
+    description: "Six 50g tins (Jasmine Green, Oolong, Earl Grey, Hibiscus, Chamomile & Lavender, Rooibos) in an Amora gift box.",
+  },
+  {
+    slug: "signature-gift-set", name: "Signature Gift Set", kind: "gift_set", tags: ["gift"], ...setPrice([TIN.jasmine, TIN.hibiscus, TIN.oolong, EXTRA.keepsakeBox]),
+    description: "Our signature selection of premium 50g Amora tea tins in a gift box.",
+  },
+  {
+    slug: "tea-time-gift-set", name: "Tea Time Gift Set", kind: "gift_set", tags: ["gift"], ...setPrice([TIN.jasmine, TIN.earlGrey, EXTRA.smallGiftBox]),
+    description: "A simple tea time gift of premium 50g Amora tea tins in a gift box.",
+  },
+  {
+    slug: "wooden-tea-gift-set", name: "Wooden Tea Gift Set", kind: "gift_set", tags: ["gift"], ...setPrice([TIN.jasmine, TIN.oolong, TIN.earlGrey, EXTRA.woodenBox]),
+    description: "Premium 50g Amora tea tins packed in a natural wooden gift box.",
+  },
 ];
