@@ -10,7 +10,6 @@ import { AnnouncementBar } from "@/components/announcement-bar";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { JsFlag } from "@/components/js-flag";
-import { ChatFab } from "@/components/chat-fab";
 import { ScrollTop } from "@/components/scroll-top";
 import { JsonLd } from "@/components/json-ld";
 import { SEO_DESCRIPTION, SEO_KEYWORDS, SITE_URL, organizationLd, websiteLd } from "@/lib/seo";
@@ -50,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main" className="flex-1">{children}</main>
         <Footer />
         <ScrollTop />
-        <ChatFab />
+    
       </body>
     </html>
   );
