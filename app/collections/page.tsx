@@ -66,8 +66,7 @@ export default async function CollectionsPage() {
         {/* Six tins: separate grid below */}
         <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-3">
           {TIN_SCENES.map((t, i) => (
-            <Reveal key={t.name} delay={(i % 3) * 90} dir="zoom" className="relative aspect-[1.16/1] overflow-hidden rounded-card shadow-soft">
-              <Image src={t.src} alt={`${t.name} tin by Amora-Tea`} fill sizes="(min-width:1024px) 33vw, 50vw" className="object-cover" />
+            <Reveal key={t.name} delay={(i % 3) * 90} dir="zoom" className="relative aspect-square overflow-hidden rounded-card shadow-soft">              <Image src={t.src} alt={`${t.name} tin by Amora-Tea`} fill sizes="(min-width:1024px) 33vw, 50vw" className="object-cover" />
             </Reveal>
           ))}
         </div>
