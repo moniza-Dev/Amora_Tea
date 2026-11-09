@@ -9,7 +9,6 @@ import { HOME_CATEGORIES } from "@/lib/catalog";
 import { AnnouncementBar } from "@/components/announcement-bar";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { JsFlag } from "@/components/js-flag";
 import { ScrollTop } from "@/components/scroll-top";
 import { JsonLd } from "@/components/json-ld";
 import { SEO_DESCRIPTION, SEO_KEYWORDS, SITE_URL, organizationLd, websiteLd } from "@/lib/seo";
@@ -40,8 +39,9 @@ const navCategories = HOME_CATEGORIES.map(({ key, label }) => ({ key, label }));
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head><JsFlag /><JsonLd data={organizationLd()} /><JsonLd data={websiteLd()} /></head>
+    // The "js" class lets the scroll-reveal animations in globals.css work (see .js [data-reveal]).
+    <html lang="en" className="js" suppressHydrationWarning>
+      <head><JsonLd data={organizationLd()} /><JsonLd data={websiteLd()} /></head>
       <body className="flex min-h-screen flex-col">
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2">Skip to content</a>
         <AnnouncementBar />
@@ -49,7 +49,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main" className="flex-1">{children}</main>
         <Footer />
         <ScrollTop />
-    
       </body>
     </html>
   );
