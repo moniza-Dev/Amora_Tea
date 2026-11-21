@@ -12,6 +12,7 @@ import { Footer } from "@/components/footer";
 import { ScrollTop } from "@/components/scroll-top";
 import { JsonLd } from "@/components/json-ld";
 import { SEO_DESCRIPTION, SEO_KEYWORDS, SITE_URL, organizationLd, websiteLd } from "@/lib/seo";
+   import { AccountSync } from "@/components/account-sync";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main" className="flex-1">{children}</main>
         <Footer />
         <ScrollTop />
+        <AccountSync />
       </body>
     </html>
   );
