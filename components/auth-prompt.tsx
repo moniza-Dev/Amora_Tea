@@ -1,15 +1,15 @@
 "use client";
 import { useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useAuthGate } from "@/lib/auth-gate";
-
-// Where guests go to sign in or create an account. Change this if your page has another address.
-const SIGN_IN_HREF = "/account";
 
 /** Renders nothing until a guest tries to add to cart or favorites. */
 export function AuthPrompt() {
   const open = useAuthGate((s) => s.promptOpen);
   const close = useAuthGate((s) => s.closePrompt);
+  const pathname = usePathname();
+  const next = encodeURIComponent(pathname || "/");
 
   useEffect(() => {
     if (!open) return;
@@ -35,11 +35,18 @@ export function AuthPrompt() {
         </p>
         <div className="mt-5 flex flex-col gap-2">
           <Link
-            href={SIGN_IN_HREF}
+            href={`/login?next=${next}`}
             onClick={close}
             className="btn-press rounded-full bg-forest px-6 py-3 text-sm font-medium text-white hover:bg-forest-dark"
           >
-            Sign in / Create account
+            Sign in
+          </Link>
+          <Link
+            href={`/register?next=${next}`}
+            onClick={close}
+            className="btn-press rounded-full border border-forest px-6 py-3 text-sm font-medium text-forest hover:bg-leaf-soft"
+          >
+            Create account
           </Link>
           <button type="button" onClick={close} className="py-2 text-sm text-ink-soft hover:text-forest">
             Maybe later

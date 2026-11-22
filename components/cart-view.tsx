@@ -211,7 +211,7 @@ export function CartView({ catalog, freeShippingCents }: { catalog: Record<strin
         {/* ── Payment action ── */}
         {payMethod === "qr" ? (
           <div>
-            <PayDialog amountCents={subtotal} orderMessage={location ? `${orderMessage}\n\n📍 Delivery: ${location}` : orderMessage} className="btn-press flex w-full items-center justify-center gap-2 rounded-full bg-forest px-6 py-3 font-medium text-white hover:bg-forest-dark">
+            <PayDialog amountCents={subtotal} order={{ location, lines: orderLines, onPlaced: (number) => { setPlaced(number); clear(); } }} orderMessage={location ? `${orderMessage}\n\n📍 Delivery: ${location}` : orderMessage} className="btn-press flex w-full items-center justify-center gap-2 rounded-full bg-forest px-6 py-3 font-medium text-white hover:bg-forest-dark">
               <QrIcon width={20} height={20} /> Pay with ABA KHQR
             </PayDialog>
             <p className="mt-2 text-center text-xs text-ink-soft">Scan, pay, then send us the screenshot.</p>

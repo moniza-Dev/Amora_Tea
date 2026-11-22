@@ -1,12 +1,21 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { SITE } from "@/lib/site";
 import { formatUSD } from "@/lib/format";
+import { useSession } from "@/lib/use-session";
+import { placeOrderAction, type PlaceOrderInput } from "@/app/order-actions";
 import { CheckIcon, CopyIcon, DownloadIcon, MessengerIcon, TelegramIcon } from "./icons";
 
 const PAY = SITE.payment;
 const MESSENGER = SITE.social.find((s) => s.label === "Messenger")!.href;
+
+/** Optional: when given, pressing a "send receipt" button also saves the order for the shop dashboard. */
+export interface PayOrder {
+  location: string;
+  lines: PlaceOrderInput["lines"];
+  onPlaced: (orderNumber: string) => void;
+}
 
 async function copyText(text: string) {
   try {
@@ -39,8 +48,41 @@ function CopyButton({ text, label, children }: { text: string; label: string; ch
 }
 
 /** ABA KHQR payment panel. The QR is static (no fixed amount), so we show the total to type in and a message to send with the receipt. */
-export function PayQr({ amountCents, orderMessage }: { amountCents?: number; orderMessage?: string }) {
+export function PayQr({ amountCents, orderMessage, order }: { amountCents?: number; orderMessage?: string; order?: PayOrder }) {
   const accounts = [{ cur: "USD", no: PAY.usd }, { cur: "KHR", no: PAY.khr }];
+
+  const user = useSession(); // undefined = checking, null = signed out
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+  const busy = useRef(false); // stops a double click from creating two orders
+  const loc = order?.location.trim() ?? "";
+  const canSend = !order || (loc.length >= 3 && !!user); // same minimum as the server (3 characters)
+
+  // The receipt links open Telegram/Messenger right away; at the same time the order is saved
+  // (payment status "pending", so the shop marks it paid after checking the screenshot).
+  function saveOrder() {
+    if (!order || !canSend || busy.current) return;
+    busy.current = true;
+    setSaving(true);
+    setError("");
+    placeOrderAction({ method: "khqr", location: loc, lines: order.lines })
+      .then((res) => {
+        if (res.ok) {
+          order.onPlaced(res.number);
+        } else {
+          busy.current = false;
+          setSaving(false);
+          setError(res.error);
+        }
+      })
+      .catch(() => {
+        busy.current = false;
+        setSaving(false);
+        setError("Could not save your order. Please try again.");
+      });
+  }
+  const blocked = canSend ? "" : "pointer-events-none opacity-50";
+
   return (
     <div className="grid gap-8 p-6 sm:p-8 md:grid-cols-[17rem_1fr] md:items-start">
       <div className="mx-auto w-64">
@@ -59,6 +101,17 @@ export function PayQr({ amountCents, orderMessage }: { amountCents?: number; ord
       <div>
         <h2 className="font-display text-2xl font-semibold text-forest">Pay with ABA KHQR</h2>
         <p className="mt-1 text-sm text-ink-soft">{PAY.bank} · <span className="font-medium text-ink">{PAY.accountName}</span></p>
+
+        {order && loc.length < 3 && (
+          <p className="mt-3 rounded-tile bg-danger/10 px-3 py-2 text-xs font-medium text-danger">
+            ⚠️ Please close this window and enter your delivery location in the cart first (at least 3 characters).
+          </p>
+        )}
+        {order && user === null && (
+          <p className="mt-3 rounded-tile bg-danger/10 px-3 py-2 text-xs font-medium text-danger">
+            ⚠️ Please sign in first so we can save your order.
+          </p>
+        )}
 
         {amountCents != null && (
           <div className="mt-5 flex items-center justify-between gap-3 rounded-tile bg-[#f3ece3] px-4 py-3">
@@ -91,9 +144,11 @@ export function PayQr({ amountCents, orderMessage }: { amountCents?: number; ord
 
         <div className="mt-6 flex flex-wrap gap-2">
           {orderMessage && <CopyButton text={orderMessage} label="Copy order message">Copy order message</CopyButton>}
-          <a href={PAY.proofTo} target="_blank" rel="noopener noreferrer" className="btn-press inline-flex items-center gap-2 rounded-full bg-forest px-4 py-2 text-sm font-medium text-white hover:bg-forest-dark"><TelegramIcon width={16} height={16} />Send receipt on Telegram</a>
-          <a href={MESSENGER} target="_blank" rel="noopener noreferrer" className="btn-press inline-flex items-center gap-2 rounded-full border border-forest px-4 py-2 text-sm font-medium text-forest hover:bg-forest hover:text-white"><MessengerIcon width={16} height={16} />Messenger</a>
+          <a href={PAY.proofTo} target="_blank" rel="noopener noreferrer" onClick={saveOrder} aria-disabled={!canSend} className={`btn-press inline-flex items-center gap-2 rounded-full bg-forest px-4 py-2 text-sm font-medium text-white hover:bg-forest-dark ${blocked}`}><TelegramIcon width={16} height={16} />Send receipt on Telegram</a>
+          <a href={MESSENGER} target="_blank" rel="noopener noreferrer" onClick={saveOrder} aria-disabled={!canSend} className={`btn-press inline-flex items-center gap-2 rounded-full border border-forest px-4 py-2 text-sm font-medium text-forest hover:bg-forest hover:text-white ${blocked}`}><MessengerIcon width={16} height={16} />Messenger</a>
         </div>
+        {saving && <p className="mt-2 text-xs text-ink-soft">Saving your order…</p>}
+        {error && <p className="mt-2 text-xs font-medium text-danger">⚠️ {error}</p>}
       </div>
     </div>
   );
