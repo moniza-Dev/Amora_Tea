@@ -1,6 +1,7 @@
 "use client";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { canUseAccountFeatures } from "@/lib/auth-gate";
 
 // Client cart holds only references (slug + grams + qty). Prices are always recalculated server-side (Phase 4).
 export interface CartLine { slug: string; grams: number; quantity: number }
@@ -17,7 +18,9 @@ export const useCart = create<CartState>()(
   persist(
     (set) => ({
       lines: [],
-      add: (slug, grams, quantity = 1) =>
+      add: (slug, grams, quantity = 1) => {
+        // Guests can't add: this opens the "sign in or create an account" popup instead.
+        if (!canUseAccountFeatures()) return;
         set((s) => {
           const hit = s.lines.find((l) => l.slug === slug && l.grams === grams);
           return {
@@ -25,7 +28,8 @@ export const useCart = create<CartState>()(
               ? s.lines.map((l) => (l === hit ? { ...l, quantity: l.quantity + quantity } : l))
               : [...s.lines, { slug, grams, quantity }],
           };
-        }),
+        });
+      },
       setQty: (slug, grams, quantity) =>
         set((s) => ({
           lines: s.lines.flatMap((l) => (l.slug === slug && l.grams === grams ? (quantity > 0 ? [{ ...l, quantity: Math.min(quantity, 99) }] : []) : [l])),

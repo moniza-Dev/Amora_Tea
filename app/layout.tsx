@@ -12,7 +12,8 @@ import { Footer } from "@/components/footer";
 import { ScrollTop } from "@/components/scroll-top";
 import { JsonLd } from "@/components/json-ld";
 import { SEO_DESCRIPTION, SEO_KEYWORDS, SITE_URL, organizationLd, websiteLd } from "@/lib/seo";
-   import { AccountSync } from "@/components/account-sync";
+import { AccountSync } from "@/components/account-sync";
+import { AuthPrompt } from "@/components/auth-prompt";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <ScrollTop />
         <AccountSync />
+        <AuthPrompt />
       </body>
     </html>
   );

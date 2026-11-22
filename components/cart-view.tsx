@@ -1,23 +1,61 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useCart } from "@/lib/cart-store";
 import { useMounted } from "@/lib/use-mounted";
+import { useSession } from "@/lib/use-session";
 import { formatUSD } from "@/lib/format";
+import { placeOrderAction } from "@/app/order-actions";
 import { ArrowIcon, CloseIcon, QrIcon } from "./icons";
 import { PayDialog } from "./pay-dialog";
 
 export interface CartCatalogItem { name: string; imageUrl: string; weights: { grams: number; priceCents: number }[]; fixedPriceCents: number | null }
 
+interface OrderLine { slug: string; grams: number; quantity: number; name: string }
+
 // Cash on Delivery confirmation panel
-function CodPanel({ amountCents, orderMessage, location }: { amountCents: number; orderMessage: string; location: string }) {
-  const [sent, setSent] = useState(false);
+function CodPanel({ orderMessage, location, orderLines, onPlaced }: {
+  orderMessage: string;
+  location: string;
+  orderLines: OrderLine[];
+  onPlaced: (orderNumber: string) => void;
+}) {
+  const user = useSession(); // undefined = checking, null = signed out
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+  const busy = useRef(false); // stops a double click from creating two orders
+
   const fullMsg = location
     ? `${orderMessage}\n\n📍 Delivery location: ${location}`
     : orderMessage;
-
   const telegramHref = `https://t.me/chanmoniza_cheat?text=${encodeURIComponent(fullMsg)}`;
+  const loc = location.trim();
+  const canOrder = loc.length >= 3 && !!user; // same minimum as the server (3 characters)
+
+  // The link opens Telegram right away (popup blockers allow it because it is a real click).
+  // At the same time the order is saved, so the shop sees it in the dashboard.
+  function handleClick() {
+    if (!canOrder || busy.current) return;
+    busy.current = true;
+    setSaving(true);
+    setError("");
+    placeOrderAction({ method: "cod", location: loc, lines: orderLines })
+      .then((res) => {
+        if (res.ok) {
+          onPlaced(res.number);
+        } else {
+          busy.current = false;
+          setSaving(false);
+          setError(res.error);
+        }
+      })
+      .catch(() => {
+        busy.current = false;
+        setSaving(false);
+        setError("Could not save your order. Please try again.");
+      });
+  }
 
   return (
     <div className="mt-5 rounded-card border border-dashed border-leaf bg-leaf-soft p-5">
@@ -25,18 +63,23 @@ function CodPanel({ amountCents, orderMessage, location }: { amountCents: number
       <p className="mt-1 text-xs text-ink-soft leading-relaxed">
         Place your order and pay in cash when our team delivers to you. Send us the details on Telegram to confirm.
       </p>
-      {!location && (
-        <p className="mt-2 text-xs font-medium text-danger">⚠️ Please enter your delivery location above first.</p>
+      {loc.length < 3 && (
+        <p className="mt-2 text-xs font-medium text-danger">⚠️ Please enter your delivery location above first (at least 3 characters).</p>
       )}
+      {user === null && (
+        <p className="mt-2 text-xs font-medium text-danger">⚠️ Please sign in first so we can save your order.</p>
+      )}
+      {error && <p className="mt-2 text-xs font-medium text-danger">⚠️ {error}</p>}
       <a
         href={telegramHref}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => setSent(true)}
+        onClick={handleClick}
+        aria-disabled={!canOrder}
         className={`btn-press mt-4 flex w-full items-center justify-center gap-2 rounded-full py-3 text-sm font-semibold text-white transition
-          ${location ? "bg-forest hover:bg-forest-dark" : "pointer-events-none cursor-not-allowed bg-ink-soft"}`}
+          ${canOrder ? "bg-forest hover:bg-forest-dark" : "pointer-events-none cursor-not-allowed bg-ink-soft"}`}
       >
-        {sent ? "✓ Sent! We'll confirm shortly" : "📦 Confirm Cash on Delivery"}
+        {saving ? "Saving your order…" : "📦 Confirm Cash on Delivery"}
       </a>
     </div>
   );
@@ -47,8 +90,19 @@ export function CartView({ catalog, freeShippingCents }: { catalog: Record<strin
   const { lines, setQty, remove, clear } = useCart();
   const [location, setLocation] = useState("");
   const [payMethod, setPayMethod] = useState<"qr" | "cod">("qr");
+  const [placed, setPlaced] = useState<string | null>(null); // order number once saved
 
   if (!mounted) return <div className="skeleton mx-auto my-12 h-48 max-w-3xl rounded-card" aria-busy />;
+
+  if (placed) {
+    return (
+      <div className="animate-rise mx-auto max-w-md px-4 py-20 text-center">
+        <p className="font-display text-2xl">Thank you! Order {placed} received</p>
+        <p className="mt-2 text-ink-soft">We&apos;ll confirm it shortly. Please make sure you pressed Send in Telegram.</p>
+        <Link href="/shop" className="btn-press mt-6 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3 font-medium text-white">Continue Shopping <ArrowIcon width={18} height={18} /></Link>
+      </div>
+    );
+  }
 
   const rows = lines.flatMap((l) => {
     const c = catalog[l.slug];
@@ -73,6 +127,7 @@ export function CartView({ catalog, freeShippingCents }: { catalog: Record<strin
     ...rows.map((r) => `• ${r.quantity} × ${r.c.name}${r.grams > 0 ? ` (${r.grams}g)` : ""} — ${formatUSD(r.unit * r.quantity)}`),
     `Total: ${formatUSD(subtotal)}`,
   ].join("\n");
+  const orderLines: OrderLine[] = rows.map((r) => ({ slug: r.slug, grams: r.grams, quantity: r.quantity, name: r.c.name.slice(0, 120) }));
 
   return (
     <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 lg:grid-cols-[1fr_380px]">
@@ -162,7 +217,12 @@ export function CartView({ catalog, freeShippingCents }: { catalog: Record<strin
             <p className="mt-2 text-center text-xs text-ink-soft">Scan, pay, then send us the screenshot.</p>
           </div>
         ) : (
-          <CodPanel amountCents={subtotal} orderMessage={orderMessage} location={location} />
+          <CodPanel
+            orderMessage={orderMessage}
+            location={location}
+            orderLines={orderLines}
+            onPlaced={(number) => { setPlaced(number); clear(); }}
+          />
         )}
       </aside>
     </div>

@@ -4,6 +4,7 @@ import { useSession } from "@/lib/use-session";
 import { useCart, type CartLine } from "@/lib/cart-store";
 import { useWishlist } from "@/lib/wishlist-store";
 import { loadSaved, saveSaved } from "@/app/sync-actions";
+import { useAuthGate } from "@/lib/auth-gate";
 
 /**
  * Renders nothing. Keeps the cart and favorites tied to the signed-in account:
@@ -34,20 +35,21 @@ export function AccountSync() {
   useEffect(() => {
     if (checking) return;
 
+    // Guests are blocked from adding to cart/favorites; signed-in customers are allowed.
+    useAuthGate.getState().setSignedIn(!!email);
+
     if (!email) {
       synced.current = null; // stop saving first, so the wipe below never reaches the database
-      // OWNER_KEY survives a full page reload (the ref does not), so use it to know
-      // that the browser still holds a signed-out account's data. Guests never get this key,
-      // so a guest's own cart is left alone.
-      let owner: string | null = null;
-      try { owner = localStorage.getItem(OWNER_KEY); } catch {}
-      if (owner) {
-        useCart.getState().clear();
-        useWishlist.getState().clear();
-        try { localStorage.removeItem(OWNER_KEY); } catch {}
-      }
+      // Guests can't have a cart or favorites, so anything left in the browser (from an
+      // account that signed out, or from before this rule existed) is removed.
+      // The database copy is never touched here.
+      useCart.getState().clear();
+      useWishlist.getState().clear();
+      try { localStorage.removeItem(OWNER_KEY); } catch {}
       return;
     }
+
+    useAuthGate.getState().closePrompt();
 
     let cancelled = false;
     (async () => {

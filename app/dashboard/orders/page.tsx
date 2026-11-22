@@ -18,8 +18,9 @@ export default async function OrdersAdmin() {
         <li key={o.id} className="rounded-card bg-card p-4 shadow-soft">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="font-medium">{o.number} <span className="font-normal text-ink-soft">· {o.createdAt.toLocaleDateString("en-GB")}</span></p>
-              <p className="text-sm text-ink-soft">{o.fullName} · {o.phone} · {o.paymentMethod.toUpperCase()}</p>
+              <p className="font-medium">{o.number} <span className="font-normal text-ink-soft">· {o.createdAt.toLocaleString("en-GB")}</span></p>
+              <p className="text-sm text-ink-soft">{o.fullName} · {o.email} · {o.phone} · {o.paymentMethod.toUpperCase()}</p>
+              <p className="mt-1 whitespace-pre-wrap text-sm text-ink-soft">📍 {o.address}</p>
               <p className="mt-1 text-sm">{o.items.map((i) => `${i.name} ${i.grams ? `${i.grams}g ` : ""}×${i.quantity}`).join(", ")}</p>
             </div>
             <p className="font-display text-xl font-semibold text-forest">{formatUSD(o.totalCents)}</p>
