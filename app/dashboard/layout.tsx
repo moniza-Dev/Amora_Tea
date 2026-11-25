@@ -8,12 +8,15 @@ export const metadata: Metadata = { title: "Shop Dashboard", robots: { index: fa
 
 export default async function DashboardLayout({ children }: LayoutProps<"/dashboard">) {
   const user = await requireRole("shop", "/dashboard");
-  const unread = await db.message.count({ where: { isRead: false } });
+  const [unread, pendingOrders] = await Promise.all([
+    db.message.count({ where: { isRead: false } }),
+    db.order.count({ where: { status: "pending" } }),
+  ]);
   return (
     <>
       <PageHero title="Shop Dashboard" subtitle={`Signed in as ${user.name ?? user.email} · Shop account`} crumbs={[{ label: "Dashboard" }]} />
       <div className="mx-auto max-w-7xl space-y-6 px-4 py-8">
-        <DashNav unread={unread} />
+        <DashNav unread={unread} pendingOrders={pendingOrders} />
         {children}
       </div>
     </>
