@@ -5,6 +5,7 @@ import { SITE } from "@/lib/site";
 import { formatUSD } from "@/lib/format";
 import { useSession } from "@/lib/use-session";
 import { isValidPhone } from "@/lib/phone";
+import { openTab } from "@/lib/open-tab";
 import { placeOrderAction, type PlaceOrderInput } from "@/app/order-actions";
 import { CheckIcon, CopyIcon, DownloadIcon, MessengerIcon, TelegramIcon } from "./icons";
 
@@ -62,22 +63,28 @@ export function PayQr({ amountCents, orderMessage, order }: { amountCents?: numb
 
   // The receipt links open Telegram/Messenger right away; at the same time the order is saved
   // (payment status "pending", so the shop marks it paid after checking the screenshot).
-  function saveOrder() {
-    if (!order || !canSend || busy.current) return;
+  function saveOrder(e: React.MouseEvent, url: string) {
+    if (!order) return; // no order to save here: the plain link works as before
+    e.preventDefault(); // Telegram/Messenger open only after the order is saved
+    if (!canSend || busy.current) return;
     busy.current = true;
     setSaving(true);
     setError("");
+    const tab = window.open("", "_blank");
     placeOrderAction({ method: "khqr", location: loc, phone: order.phone.trim(), lines: order.lines })
       .then((res) => {
         if (res.ok) {
+          openTab(tab, url);
           order.onPlaced(res.number);
         } else {
+          tab?.close();
           busy.current = false;
           setSaving(false);
           setError(res.error);
         }
       })
       .catch(() => {
+        tab?.close();
         busy.current = false;
         setSaving(false);
         setError("Could not save your order. Please try again.");
@@ -151,8 +158,8 @@ export function PayQr({ amountCents, orderMessage, order }: { amountCents?: numb
 
         <div className="mt-6 flex flex-wrap gap-2">
           {orderMessage && <CopyButton text={orderMessage} label="Copy order message">Copy order message</CopyButton>}
-          <a href={PAY.proofTo} target="_blank" rel="noopener noreferrer" onClick={saveOrder} aria-disabled={!canSend} className={`btn-press inline-flex items-center gap-2 rounded-full bg-forest px-4 py-2 text-sm font-medium text-white hover:bg-forest-dark ${blocked}`}><TelegramIcon width={16} height={16} />Send receipt on Telegram</a>
-          <a href={MESSENGER} target="_blank" rel="noopener noreferrer" onClick={saveOrder} aria-disabled={!canSend} className={`btn-press inline-flex items-center gap-2 rounded-full border border-forest px-4 py-2 text-sm font-medium text-forest hover:bg-forest hover:text-white ${blocked}`}><MessengerIcon width={16} height={16} />Messenger</a>
+          <a href={PAY.proofTo} target="_blank" rel="noopener noreferrer" onClick={(e) => saveOrder(e, PAY.proofTo)} aria-disabled={!canSend} className={`btn-press inline-flex items-center gap-2 rounded-full bg-forest px-4 py-2 text-sm font-medium text-white hover:bg-forest-dark ${blocked}`}><TelegramIcon width={16} height={16} />Send receipt on Telegram</a>
+          <a href={MESSENGER} target="_blank" rel="noopener noreferrer" onClick={(e) => saveOrder(e, MESSENGER)} aria-disabled={!canSend} className={`btn-press inline-flex items-center gap-2 rounded-full border border-forest px-4 py-2 text-sm font-medium text-forest hover:bg-forest hover:text-white ${blocked}`}><MessengerIcon width={16} height={16} />Messenger</a>
         </div>
         {saving && <p className="mt-2 text-xs text-ink-soft">Saving your order…</p>}
         {error && <p className="mt-2 text-xs font-medium text-danger">⚠️ {error}</p>}

@@ -8,6 +8,7 @@ import { useSession } from "@/lib/use-session";
 import { formatUSD } from "@/lib/format";
 import { placeOrderAction, loadMyPhone } from "@/app/order-actions";
 import { isValidPhone } from "@/lib/phone";
+import { openTab } from "@/lib/open-tab";
 import { ArrowIcon, CloseIcon, QrIcon } from "./icons";
 import { PayDialog } from "./pay-dialog";
 
@@ -39,22 +40,27 @@ function CodPanel({ orderMessage, location, phone, orderLines, onPlaced }: {
 
   // The link opens Telegram right away (popup blockers allow it because it is a real click).
   // At the same time the order is saved, so the shop sees it in the dashboard.
-  function handleClick() {
+  function handleClick(e: React.MouseEvent) {
+    e.preventDefault(); // Telegram opens only after the order is saved
     if (!canOrder || busy.current) return;
     busy.current = true;
     setSaving(true);
     setError("");
+    const tab = window.open("", "_blank"); // sent to Telegram below, only if the order is saved
     placeOrderAction({ method: "cod", location: loc, phone: phone.trim(), lines: orderLines })
       .then((res) => {
         if (res.ok) {
+          openTab(tab, telegramHref);
           onPlaced(res.number);
         } else {
+          tab?.close();
           busy.current = false;
           setSaving(false);
           setError(res.error);
         }
       })
       .catch(() => {
+        tab?.close();
         busy.current = false;
         setSaving(false);
         setError("Could not save your order. Please try again.");
