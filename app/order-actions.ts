@@ -3,6 +3,7 @@ import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { db } from "@/lib/db";
 import { getUser } from "@/lib/auth";
+import { isValidPhone } from "@/lib/phone";
 
 /**
  * Saves a customer's order so the shop sees it in /dashboard and /dashboard/orders.
@@ -13,6 +14,7 @@ import { getUser } from "@/lib/auth";
 const inputSchema = z.object({
   method: z.enum(["cod", "khqr"]),
   location: z.string().trim().min(3).max(500),
+  phone: z.string().trim().refine(isValidPhone, "Invalid phone"),
   lines: z
     .array(
       z.object({
@@ -42,8 +44,11 @@ export async function placeOrderAction(input: PlaceOrderInput): Promise<PlaceOrd
   if (!user) return { ok: false, error: "Please sign in to place your order." };
 
   const parsed = inputSchema.safeParse(input);
-  if (!parsed.success) return { ok: false, error: "Please enter your delivery location." };
-  const { method, location, lines } = parsed.data;
+  if (!parsed.success) {
+    const field = parsed.error.issues[0]?.path[0];
+    return { ok: false, error: field === "phone" ? "Please enter a valid phone number." : "Please enter your delivery location." };
+  }
+  const { method, location, phone, lines } = parsed.data;
 
   const products = await db.productOverlay.findMany({
     where: { slug: { in: [...new Set(lines.map((l) => l.slug))] }, isActive: true },
@@ -91,7 +96,7 @@ export async function placeOrderAction(input: PlaceOrderInput): Promise<PlaceOrd
         number,
         userId: user.id,
         email: user.email,
-        phone: full?.phone || "-",
+        phone,
         fullName: user.name || user.email,
         province: "-",
         address: location,
@@ -106,7 +111,19 @@ export async function placeOrderAction(input: PlaceOrderInput): Promise<PlaceOrd
     return { ok: false, error: "Could not save your order. Please try again." };
   }
 
+  if (!full?.phone) {
+    await db.user.update({ where: { id: user.id }, data: { phone } }).catch(() => {});
+  }
+
   revalidatePath("/dashboard");
   revalidatePath("/dashboard/orders");
   return { ok: true, number };
+}
+
+/** The signed-in customer's saved phone (empty if none), used to prefill the cart form. */
+export async function loadMyPhone(): Promise<string> {
+  const user = await getUser();
+  if (!user) return "";
+  const u = await db.user.findUnique({ where: { id: user.id }, select: { phone: true } });
+  return u?.phone ?? "";
 }

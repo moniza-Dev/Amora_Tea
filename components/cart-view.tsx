@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/lib/cart-store";
 import { useMounted } from "@/lib/use-mounted";
 import { useSession } from "@/lib/use-session";
 import { formatUSD } from "@/lib/format";
-import { placeOrderAction } from "@/app/order-actions";
+import { placeOrderAction, loadMyPhone } from "@/app/order-actions";
+import { isValidPhone } from "@/lib/phone";
 import { ArrowIcon, CloseIcon, QrIcon } from "./icons";
 import { PayDialog } from "./pay-dialog";
 
@@ -15,9 +16,10 @@ export interface CartCatalogItem { name: string; imageUrl: string; weights: { gr
 interface OrderLine { slug: string; grams: number; quantity: number; name: string }
 
 // Cash on Delivery confirmation panel
-function CodPanel({ orderMessage, location, orderLines, onPlaced }: {
+function CodPanel({ orderMessage, location, phone, orderLines, onPlaced }: {
   orderMessage: string;
   location: string;
+  phone: string;
   orderLines: OrderLine[];
   onPlaced: (orderNumber: string) => void;
 }) {
@@ -26,12 +28,14 @@ function CodPanel({ orderMessage, location, orderLines, onPlaced }: {
   const [error, setError] = useState("");
   const busy = useRef(false); // stops a double click from creating two orders
 
-  const fullMsg = location
-    ? `${orderMessage}\n\n📍 Delivery location: ${location}`
-    : orderMessage;
+  const fullMsg = [
+    orderMessage,
+    location && `📍 Delivery location: ${location}`,
+    phone.trim() && `📞 Phone: ${phone.trim()}`,
+  ].filter(Boolean).join("\n\n");
   const telegramHref = `https://t.me/chanmoniza_cheat?text=${encodeURIComponent(fullMsg)}`;
   const loc = location.trim();
-  const canOrder = loc.length >= 3 && !!user; // same minimum as the server (3 characters)
+  const canOrder = loc.length >= 3 && isValidPhone(phone) && !!user; // same rules as the server
 
   // The link opens Telegram right away (popup blockers allow it because it is a real click).
   // At the same time the order is saved, so the shop sees it in the dashboard.
@@ -40,7 +44,7 @@ function CodPanel({ orderMessage, location, orderLines, onPlaced }: {
     busy.current = true;
     setSaving(true);
     setError("");
-    placeOrderAction({ method: "cod", location: loc, lines: orderLines })
+    placeOrderAction({ method: "cod", location: loc, phone: phone.trim(), lines: orderLines })
       .then((res) => {
         if (res.ok) {
           onPlaced(res.number);
@@ -65,6 +69,9 @@ function CodPanel({ orderMessage, location, orderLines, onPlaced }: {
       </p>
       {loc.length < 3 && (
         <p className="mt-2 text-xs font-medium text-danger">⚠️ Please enter your delivery location above first (at least 3 characters).</p>
+      )}
+      {!isValidPhone(phone) && (
+        <p className="mt-2 text-xs font-medium text-danger">⚠️ Please enter a valid phone number above so we can call you for delivery.</p>
       )}
       {user === null && (
         <p className="mt-2 text-xs font-medium text-danger">⚠️ Please sign in first so we can save your order.</p>
@@ -91,6 +98,12 @@ export function CartView({ catalog, freeShippingCents }: { catalog: Record<strin
   const [location, setLocation] = useState("");
   const [payMethod, setPayMethod] = useState<"qr" | "cod">("qr");
   const [placed, setPlaced] = useState<string | null>(null); // order number once saved
+  const [phone, setPhone] = useState("");
+
+  // Prefill with the phone saved on the account (if any), without overwriting what the customer typed.
+  useEffect(() => {
+    loadMyPhone().then((p) => { if (p) setPhone((cur) => cur || p); }).catch(() => {});
+  }, []);
 
   if (!mounted) return <div className="skeleton mx-auto my-12 h-48 max-w-3xl rounded-card" aria-busy />;
 
@@ -181,6 +194,29 @@ export function CartView({ catalog, freeShippingCents }: { catalog: Record<strin
           )}
         </div>
 
+        {/* ── Phone ── */}
+        <div>
+          <label htmlFor="order-phone" className="mb-1.5 block text-sm font-medium text-ink">
+            📞 Phone Number <span className="text-danger">*</span>
+          </label>
+          <input
+            id="order-phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="e.g. 010 569 063 or +855 10 569 063"
+            className="w-full rounded-tile border border-black/10 bg-white px-3 py-2.5 text-sm text-ink placeholder:text-ink-soft/60 focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20"
+          />
+          {phone && !isValidPhone(phone) && (
+            <p className="mt-1 text-[11px] text-danger">Use digits only, 8 to 20 characters (a leading + is fine).</p>
+          )}
+          {!phone && (
+            <p className="mt-1 text-[11px] text-ink-soft">Our delivery team will call this number.</p>
+          )}
+        </div>
+
         {/* ── Payment Method Toggle ── */}
         <div>
           <p className="mb-2 text-sm font-medium text-ink">Payment Method</p>
@@ -211,7 +247,7 @@ export function CartView({ catalog, freeShippingCents }: { catalog: Record<strin
         {/* ── Payment action ── */}
         {payMethod === "qr" ? (
           <div>
-            <PayDialog amountCents={subtotal} order={{ location, lines: orderLines, onPlaced: (number) => { setPlaced(number); clear(); } }} orderMessage={location ? `${orderMessage}\n\n📍 Delivery: ${location}` : orderMessage} className="btn-press flex w-full items-center justify-center gap-2 rounded-full bg-forest px-6 py-3 font-medium text-white hover:bg-forest-dark">
+            <PayDialog amountCents={subtotal} order={{ location, phone, lines: orderLines, onPlaced: (number) => { setPlaced(number); clear(); } }} orderMessage={location ? `${orderMessage}\n\n📍 Delivery: ${location}` : orderMessage} className="btn-press flex w-full items-center justify-center gap-2 rounded-full bg-forest px-6 py-3 font-medium text-white hover:bg-forest-dark">
               <QrIcon width={20} height={20} /> Pay with ABA KHQR
             </PayDialog>
             <p className="mt-2 text-center text-xs text-ink-soft">Scan, pay, then send us the screenshot.</p>
@@ -220,6 +256,7 @@ export function CartView({ catalog, freeShippingCents }: { catalog: Record<strin
           <CodPanel
             orderMessage={orderMessage}
             location={location}
+            phone={phone}
             orderLines={orderLines}
             onPlaced={(number) => { setPlaced(number); clear(); }}
           />

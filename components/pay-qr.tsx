@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { SITE } from "@/lib/site";
 import { formatUSD } from "@/lib/format";
 import { useSession } from "@/lib/use-session";
+import { isValidPhone } from "@/lib/phone";
 import { placeOrderAction, type PlaceOrderInput } from "@/app/order-actions";
 import { CheckIcon, CopyIcon, DownloadIcon, MessengerIcon, TelegramIcon } from "./icons";
 
@@ -13,6 +14,7 @@ const MESSENGER = SITE.social.find((s) => s.label === "Messenger")!.href;
 /** Optional: when given, pressing a "send receipt" button also saves the order for the shop dashboard. */
 export interface PayOrder {
   location: string;
+  phone: string;
   lines: PlaceOrderInput["lines"];
   onPlaced: (orderNumber: string) => void;
 }
@@ -56,7 +58,7 @@ export function PayQr({ amountCents, orderMessage, order }: { amountCents?: numb
   const [error, setError] = useState("");
   const busy = useRef(false); // stops a double click from creating two orders
   const loc = order?.location.trim() ?? "";
-  const canSend = !order || (loc.length >= 3 && !!user); // same minimum as the server (3 characters)
+  const canSend = !order || (loc.length >= 3 && isValidPhone(order.phone) && !!user); // same rules as the server
 
   // The receipt links open Telegram/Messenger right away; at the same time the order is saved
   // (payment status "pending", so the shop marks it paid after checking the screenshot).
@@ -65,7 +67,7 @@ export function PayQr({ amountCents, orderMessage, order }: { amountCents?: numb
     busy.current = true;
     setSaving(true);
     setError("");
-    placeOrderAction({ method: "khqr", location: loc, lines: order.lines })
+    placeOrderAction({ method: "khqr", location: loc, phone: order.phone.trim(), lines: order.lines })
       .then((res) => {
         if (res.ok) {
           order.onPlaced(res.number);
@@ -105,6 +107,11 @@ export function PayQr({ amountCents, orderMessage, order }: { amountCents?: numb
         {order && loc.length < 3 && (
           <p className="mt-3 rounded-tile bg-danger/10 px-3 py-2 text-xs font-medium text-danger">
             ⚠️ Please close this window and enter your delivery location in the cart first (at least 3 characters).
+          </p>
+        )}
+        {order && loc.length >= 3 && !isValidPhone(order.phone) && (
+          <p className="mt-3 rounded-tile bg-danger/10 px-3 py-2 text-xs font-medium text-danger">
+            ⚠️ Please close this window and enter a valid phone number in the cart first.
           </p>
         )}
         {order && user === null && (
