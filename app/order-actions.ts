@@ -10,6 +10,8 @@ import { isValidPhone } from "@/lib/phone";
  * The customer always comes from the session cookie (getUser). Prices are recalculated here from the
  * database, so the browser can never choose its own price. The name sent by the browser is only used
  * for display when the product has no name saved in the database.
+ * Stock is taken off in the same database transaction as the order, so two customers can never
+ * buy the last tin at the same time, and a failed order never loses stock.
  */
 const inputSchema = z.object({
   method: z.enum(["cod", "khqr"]),
@@ -32,6 +34,15 @@ export type PlaceOrderInput = z.infer<typeof inputSchema>;
 export type PlaceOrderResult = { ok: true; number: string } | { ok: false; error: string };
 
 type Weight = { grams: number; priceCents: number };
+
+// Thrown inside the transaction to undo everything when a product doesn't have enough stock.
+class OutOfStock extends Error {
+  slug: string;
+  constructor(slug: string) {
+    super("out of stock");
+    this.slug = slug;
+  }
+}
 
 function orderNumber() {
   const d = new Date();
@@ -90,23 +101,41 @@ export async function placeOrderAction(input: PlaceOrderInput): Promise<PlaceOrd
   const full = await db.user.findUnique({ where: { id: user.id } });
   const number = orderNumber();
 
+  // Total quantity per product (the same tea can be in the cart in several sizes).
+  const qtyBySlug = new Map<string, number>();
+  for (const i of items) qtyBySlug.set(i.slug, (qtyBySlug.get(i.slug) ?? 0) + i.quantity);
+
   try {
-    await db.order.create({
-      data: {
-        number,
-        userId: user.id,
-        email: user.email,
-        phone,
-        fullName: user.name || user.email,
-        province: "-",
-        address: location,
-        paymentMethod: method,
-        subtotalCents: subtotal,
-        totalCents: subtotal, // shipping and discounts are agreed on Telegram for now
-        items: { create: items },
-      },
+    await db.$transaction(async (tx) => {
+      for (const [slug, qty] of qtyBySlug) {
+        // Only succeeds if enough stock is left; otherwise nothing is changed.
+        const res = await tx.productOverlay.updateMany({
+          where: { slug, stock: { gte: qty } },
+          data: { stock: { decrement: qty } },
+        });
+        if (res.count === 0) throw new OutOfStock(slug);
+      }
+      await tx.order.create({
+        data: {
+          number,
+          userId: user.id,
+          email: user.email,
+          phone,
+          fullName: user.name || user.email,
+          province: "-",
+          address: location,
+          paymentMethod: method,
+          subtotalCents: subtotal,
+          totalCents: subtotal, // shipping and discounts are agreed on Telegram for now
+          items: { create: items },
+        },
+      });
     });
   } catch (e) {
+    if (e instanceof OutOfStock) {
+      const name = items.find((i) => i.slug === e.slug)?.name ?? "An item";
+      return { ok: false, error: `Sorry, we don't have enough ${name} in stock for that quantity.` };
+    }
     console.error("placeOrderAction failed", e);
     return { ok: false, error: "Could not save your order. Please try again." };
   }
@@ -115,8 +144,8 @@ export async function placeOrderAction(input: PlaceOrderInput): Promise<PlaceOrd
     await db.user.update({ where: { id: user.id }, data: { phone } }).catch(() => {});
   }
 
-  revalidatePath("/dashboard");
-  revalidatePath("/dashboard/orders");
+  revalidatePath("/dashboard", "layout");
+  revalidatePath("/shop");
   return { ok: true, number };
 }
 
